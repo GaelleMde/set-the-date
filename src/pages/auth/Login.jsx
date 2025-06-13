@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react';
+import axios from "axios"
+import { useNavigate } from 'react-router-dom';
+import { Authcontext } from '../../context/auth.context';
 
 function Login() {
+
+  const {authenticateUser } = useContext (Authcontext)
   
-const [email, setEmail] = useState("");
+  const navigate = useNavigate()
+  
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null)
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
@@ -13,15 +21,48 @@ const [email, setEmail] = useState("");
     e.preventDefault();
 
     // ... contactar al backend para validar credenciales de usuario aqui
-  };
+    const userCredentials = {
+    email, 
+    password
+  }
+
+  try {
+    const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/auth/login`, userCredentials)
+    console.log("User successfully validated from the backend", response)
+
+    //almacenamos el token en localStorage
+    localStorage.setItem("authToken", response.data.authToken)
+    //crear el contexto y actualizar los estados del contexto
+    await authenticateUser ()
+    // redirecionamos al usuario a alguna pagina privada
+    navigate("/homepage")
+
+
+
+
+
+
+
+  } catch (error) {
+    console.log(error)
+    if (error.response.status === 400) {
+      setErrorMessage(error.response.data.errorMessage)
+    }   else {
+    navigate('/error')
+  }
+}};
+  
 
   return (
     <div>
 
-      <h1>Formulario de Acceso</h1>
+      <h1>Login</h1>
+
+      {errorMessage &&  <p>{errorMessage}</p>}
+       
 
       <form onSubmit={handleLogin}>
-        <label>Correo Electronico:</label>
+        <label>Email:</label>
         <input
           type="email"
           name="email"
@@ -31,7 +72,7 @@ const [email, setEmail] = useState("");
 
         <br />
 
-        <label>Contraseña:</label>
+        <label>Password:</label>
         <input
           type="password"
           name="password"
@@ -41,7 +82,7 @@ const [email, setEmail] = useState("");
 
         <br />
 
-        <button type="submit">Acceder</button>
+        <button type="submit">Login</button>
       </form>
       
     </div>

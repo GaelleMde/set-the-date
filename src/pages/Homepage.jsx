@@ -1,15 +1,15 @@
-import { Link } from "react-router-dom";
+import React from 'react'
+import {Authcontext} from '../context/auth.context'
 
-function Homepage() {
+
+function HomePage() {
+
+   
+
   return (
-    <div>
-      <h1>Home</h1>
-      
-      <Link to="/signup">Sign Up</Link> 
-      <br />
-      <Link to="/login">Login</Link>
-    </div>
+    <div>HomePage</div>
   )
 }
 
-export default Homepage
+export default HomePage
+
