@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 
@@ -16,6 +16,8 @@ function AuthWrapper(props) {
 
     const authenticateUser = async () => {
         //function para validar el token dle usuario y saber quien es y actualizar los estados
+        
+    
 
         const authToken = localStorage.getItem("authToken")
 
@@ -29,14 +31,20 @@ function AuthWrapper(props) {
             // si la llamada llega a este punto significa que el backend validó el token
             setIsLoggedIn(true)
             setLoggedUserId(response.data.payload._id)
+            setIsValidatingToken(false)
 
         } catch (error) {
             console.log(error)
             // si la llamada llega a este punto significa que el token no existe, no es valido o expiró
             setIsLoggedIn(false)
             setLoggedUserId(null)
+            setIsValidatingToken(false)
         }
     }
+
+    useEffect(()=>{
+        authenticateUser()
+    }, [])
 
     // Contexto que compartimos para tener a mano el estado y funciones de usuario en toda la app
     const passedContext = {
@@ -44,6 +52,12 @@ function AuthWrapper(props) {
         loggedUserId,
         authenticateUser, 
         role, 
+    }
+
+    if (isValidatingToken) {
+      return (
+        <h3>...Validating user</h3>
+      )  
     }
 
     return (
