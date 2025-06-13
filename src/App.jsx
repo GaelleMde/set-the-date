@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
@@ -10,12 +11,13 @@ import ErrorPage from './pages/ErrorPage'
 import LandingPage from './pages/LandingPage'
 import MyNavbar from './components/MyNavbar'
 import OnlyPrivate from './components/OnlyPrivate'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   
 
   return (
-    <div>
+    <div id="main-app-repere">
       <MyNavbar/>
 
     <Routes>

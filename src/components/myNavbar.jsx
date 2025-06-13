@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
 import { Authcontext } from '../context/auth.context'
 import { useNavigate, Link } from 'react-router-dom'
-
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
 function MyNavbar() {
 
@@ -26,13 +27,13 @@ try {
 }
 
   return (
-    <nav>
+    <Navbar>
 
     {isLoggedIn === true && (
      <button onClick={handleLogout}>Log out</button>
     )}
 
-    </nav>
+    </Navbar>
   ) 
 }
 
