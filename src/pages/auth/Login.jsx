@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { useState } from 'react';
-import axios from "axios"
 import { useNavigate } from 'react-router-dom';
 import { Authcontext } from '../../context/auth.context';
+import service from '../../services/service.config';
 
 function Login() {
 
@@ -27,7 +27,7 @@ function Login() {
   }
 
   try {
-    const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/auth/login`, userCredentials)
+    const response = await service.post(`/auth/login`, userCredentials)
     console.log("User successfully validated from the backend", response)
 
     //almacenamos el token en localStorage

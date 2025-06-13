@@ -1,6 +1,6 @@
 import { createContext, useEffect } from "react";
 import { useState } from "react";
-import axios from "axios";
+import service from "../services/service.config";
 
 
 // componente que comparte los estados del contexto por toda la app
@@ -16,21 +16,15 @@ function AuthWrapper(props) {
 
     const authenticateUser = async () => {
         //function para validar el token dle usuario y saber quien es y actualizar los estados
-        
-    
-
-        const authToken = localStorage.getItem("authToken")
 
         try {
-            const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/auth/verify`, {
-            headers: {
-                authorization: `Bearer ${authToken}` 
-            }
-            })
+            const response = await service.get(`auth/verify`)
+            
 
             // si la llamada llega a este punto significa que el backend validó el token
             setIsLoggedIn(true)
             setLoggedUserId(response.data.payload._id)
+            setRole(response.data.payload.role)
             setIsValidatingToken(false)
 
         } catch (error) {
@@ -38,6 +32,7 @@ function AuthWrapper(props) {
             // si la llamada llega a este punto significa que el token no existe, no es valido o expiró
             setIsLoggedIn(false)
             setLoggedUserId(null)
+            setRole(null)
             setIsValidatingToken(false)
         }
     }
