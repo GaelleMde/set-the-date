@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
@@ -12,6 +11,7 @@ import LandingPage from './pages/LandingPage'
 import MyNavbar from './components/MyNavbar'
 import OnlyPrivate from './components/OnlyPrivate'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import EventDetailsPage from './pages/EventDetailsPage';
 
 function App() {
   
@@ -25,6 +25,7 @@ function App() {
       <Route path="/signup" element={<Signup/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/homepage" element={<OnlyPrivate><HomePage/></OnlyPrivate>}/>
+      <Route path="/event/:eventId" element={<OnlyPrivate><EventDetailsPage/></OnlyPrivate>}/>
       <Route path="/error" element={<ErrorPage/>}/>
 
     </Routes>

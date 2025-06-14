@@ -1,9 +1,18 @@
-import React from 'react'
+import { useNavigate } from "react-router-dom";
+
 
 function FavoriteCard(props) {
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/event/${props.eachFavorite._id}`);
+  };
+
+
   return (
 
-    <div className = "favorite-card"
+    <div className = "favorite-card" onClick={handleClick}
     style={{
     border: "2px solid #ccc",
     padding: "10px",
