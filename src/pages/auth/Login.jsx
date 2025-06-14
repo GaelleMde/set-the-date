@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Authcontext } from '../../context/auth.context';
 import service from '../../services/service.config';
+import Form from "react-bootstrap/Form";
+import "../auth/Login.css";
 
 function Login() {
 
@@ -54,37 +56,43 @@ function Login() {
   
 
   return (
-    <div>
+    <div className="login-main">
+       <div className="left-part">
+        <img src="/pelotas-de-tenis-en-pista.jpg" alt="tennis ball" className="image-login" />
+       </div>
 
-      <h1>Login</h1>
+    <div className="form-part">
+      <Form onSubmit={handleLogin}>
 
-      {errorMessage &&  <p>{errorMessage}</p>}
-       
+        <h1>Login</h1>
 
-      <form onSubmit={handleLogin}>
-        <label>Email:</label>
-        <input
+        {errorMessage &&  <p>{errorMessage}</p>}
+
+        <Form.Group className="mb-3">
+        <Form.Label>Email:</Form.Label>
+        <Form.Control
           type="email"
           name="email"
           value={email}
           onChange={handleEmailChange}
-        />
+        /> </Form.Group>
 
         <br />
 
-        <label>Password:</label>
-        <input
+      <Form.Group className="mb-3">
+        <Form.Label>Password:</Form.Label>
+        <Form.Control
           type="password"
           name="password"
           value={password}
           onChange={handlePasswordChange}
-        />
+        /> </Form.Group>
 
         <br />
 
         <button type="submit">Login</button>
-      </form>
-      
+     </Form>
+      </div>
     </div>
   );
 }

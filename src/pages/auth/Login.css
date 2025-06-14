@@ -1,0 +1,45 @@
+.login-main {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.left-part{
+    width: 60%;
+    height: 100%;
+}
+
+.image-login {
+ width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.form-part {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+
+@media (max-width: 768px) {
+  .login-main {
+    flex-direction: column; 
+  }
+
+  .left-part, .form-part {
+    width: 100%;
+    flex: none;
+  }
+
+  .image-login {
+    width: 100%;
+    max-height: 300px; 
+    object-fit: cover;
+  }
+
+  .form-part {
+    padding: 1rem;
+  }
+}

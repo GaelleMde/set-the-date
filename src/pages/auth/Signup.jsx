@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import service from '../../services/service.config';
+import Form from "react-bootstrap/Form";
 
 function Signup() {
 
@@ -47,45 +48,54 @@ try {
 
   };
   return (
-    <div>
-              <h1>Sign up</h1>
+    <div className="login-main">
+      <div className="left-part">
+        <img src="/pelotas-de-tenis-en-pista.jpg" alt="tennis ball" className="image-login" />
+          </div>
+
+          <div className="form-part">
+              
     
-      <form onSubmit={handleSignup}>
+      <Form onSubmit={handleSignup}>
+
+        <h1>Sign up</h1>
 
       {errorMessage &&  <p>{errorMessage}</p>}
 
-        <label>Email:</label>
-        <input
+ <Form.Group className="mb-3">
+       <Form.Label>Email:</Form.Label>
+        <Form.Control
           type="email"
           name="email"
           value={email}
           onChange={handleEmailChange}
-        />
+        /> </Form.Group>
 
         <br />
-
-        <label>Name:</label>
-        <input
+        <Form.Group className="mb-3">
+        <Form.Label>Name:</Form.Label>
+        <Form.Control
           type="text"
           name="username"
           value={name}
           onChange={handleNameChange}
-        />
+        /></Form.Group>
 
         <br />
-
-        <label>Password:</label>
-        <input
+    <Form.Group className="mb-3">
+        <Form.Label>Password:</Form.Label>
+        <Form.Control
           type="password"
           name="password"
           value={password}
           onChange={handlePasswordChange}
-        />
+        /> </Form.Group>
 
         <br />
 
         <button type="submit">Sign up</button>
-      </form>
+      </Form>
+    </div>
     </div>
   )
 }
