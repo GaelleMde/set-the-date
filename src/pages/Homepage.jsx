@@ -5,6 +5,7 @@ import FavoriteCard from '../components/FavoriteCard'
 import UpcomingEventCard from '../components/UpcomingEventCard'
 
 
+
 function HomePage() {
 
   const {role} = useContext(Authcontext)
@@ -60,6 +61,7 @@ getUpcomingEvents()
 
   return (
     <div>
+      
       <h1>Homepage</h1>
       <h2>My favorites events</h2>
 
@@ -80,6 +82,7 @@ getUpcomingEvents()
         <UpcomingEventCard key={eachUpcomingEvent._id} eachUpcomingEvent={eachUpcomingEvent}/>
       ))}
 </div>
+      
     { role === "admin" && <button>Only for Admin</button>}
     </div>
   )

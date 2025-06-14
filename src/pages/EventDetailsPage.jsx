@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import service from '../services/service.config'
 import { useParams } from "react-router-dom"
 import CommentCard from "../components/CommentCard"
-
+import AddComment from '../components/AddComment'
 
 function EventDetailsPage() {
 
@@ -69,6 +69,8 @@ const getComments = async () => {
             {comment.map((eachComment) => (
         <CommentCard key={eachComment._id} eachComment={eachComment}/>
       ))}
+
+      <AddComment/>
     
         </div> 
         
