@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Authcontext } from "../context/auth.context";
 
 
-function AddComment() {
+function AddComment(props) {
 
 
 
@@ -34,6 +34,8 @@ const newComment = {
     const response = await service.post(`/comment/`, newComment)
     console.log("Response from server:", response);
     setComment("")
+    props.getComments()
+    // get get Comments, se actualizan los comentarios, despues de crear un comment
        } catch (error) {
     console.log(error)
    } 

@@ -1,9 +1,16 @@
-import React from 'react'
+import { useNavigate } from "react-router-dom";
 
 function UpcomingEventCard(props) {
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/event/${props.eachUpcomingEvent._id}`);
+  };
+
   return (
 
-       <div className = "upcoming-event-card"
+       <div className = "upcoming-event-card" onClick={handleClick}
     style={{
     border: "2px solid #ccc",
     padding: "10px",

@@ -29,12 +29,16 @@ function MyNavbar() {
       </Navbar.Brand>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
       <Navbar.Collapse id="basic-navbar-nav">
+
         <Nav className="me-auto">
+
           {isLoggedIn === true && (
-            <Nav.Link onClick={handleLogout}>Log out</Nav.Link>,
-            <Nav.Link >Test</Nav.Link>
+            <Nav.Link onClick={handleLogout}>Log out</Nav.Link>
           )}
+          <Nav.Link>Log out</Nav.Link>
+
         </Nav>
       </Navbar.Collapse>
     </Navbar>

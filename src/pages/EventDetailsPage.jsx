@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import {Authcontext} from '../context/auth.context'
 import service from '../services/service.config'
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import CommentCard from "../components/CommentCard"
 import AddComment from '../components/AddComment'
 
@@ -11,8 +11,14 @@ const {role} = useContext(Authcontext)
 const [event, setEvent] = useState(null)
 const [comment, setComment] = useState(null)
 const params = useParams();
+const navigate = useNavigate();
 
 console.log(params)
+
+const handleEdit = () => {
+  navigate(`/event/edit/${params.eventId}`);
+};
+
 
 useEffect (() =>{
 getEventDetails()
@@ -65,11 +71,11 @@ const getComments = async () => {
              <p>{event.name}</p>
              <p> Current Champion:{event.currentChampion}</p>
              <p> Surface:{event.surface}</p>
-             <p> Level:{event.surface}</p>
+             <p> Level:{event.level}</p>
              <p> Prize Money:{event.prizeMoney.toLocaleString()}$</p>
              <hr />
 
-             { role === "admin" && <button>Edit</button>}
+             { role === "admin" && <button onClick={handleEdit}>Edit</button>}
              { role === "admin" && <button>Delete</button>}
 
             <h3>Comments</h3>
@@ -79,7 +85,7 @@ const getComments = async () => {
       ))}
 
           
-      <AddComment/>
+      <AddComment getComments={getComments}/>
          
 
         </div> 
