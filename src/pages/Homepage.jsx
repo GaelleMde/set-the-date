@@ -82,16 +82,13 @@ getUpcomingEvents()
         )))} 
 
       <h2>Upcoming event</h2>
+      
       {allUpcomingEvent.length === 0 ? (
         <p>No upcoming events scheduled yet 🥲</p>
       ) : (
-       <div className = "upcoming-event-container"
-    style = {{
-    display: "flex",        
-    flexDirection: "row"
-    }}
-    
-    >
+
+        <div className="upcoming-card-container">
+
       {allUpcomingEvent.map((eachUpcomingEvent) => (
         <UpcomingEventCard key={eachUpcomingEvent._id} eachUpcomingEvent={eachUpcomingEvent}/>
       ))}
