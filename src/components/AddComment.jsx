@@ -18,10 +18,6 @@ const handleSubmit = (e) => {
     postComment();
 }
 
-
-
-
-
  const postComment = async () => {
 
 const newComment = {

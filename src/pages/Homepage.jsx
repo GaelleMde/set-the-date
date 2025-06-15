@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import {Authcontext} from '../context/auth.context'
 import service from '../services/service.config'
 import FavoriteCard from '../components/FavoriteCard'
 import UpcomingEventCard from '../components/UpcomingEventCard'
+import { Link } from 'react-router-dom'
 
 
 
@@ -68,6 +69,10 @@ getUpcomingEvents()
       
       <h1>Homepage</h1>
       <h2>My favorites events</h2>
+            <Link to="/favorite">
+        <h6>View all my favorites</h6>
+      </Link>
+      
 
       {allFavorites.length === 0 ? (
         <p>You don’t have any favorite tournaments saved yet 🎾</p>

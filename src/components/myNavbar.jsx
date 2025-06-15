@@ -4,13 +4,25 @@ import { useNavigate, Link } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
+
 function MyNavbar() {
+
+  const {role} = useContext(Authcontext)
   const { isLoggedIn } = useContext(Authcontext);
   const navigate = useNavigate();
   const { authenticateUser } = useContext(Authcontext);
 
+const handleAddEvent = () => {
+  navigate(`/event/new`);
+};
+
+const handleAllEvent = () => {
+  navigate(`/event/all`)
+}
+
   const handleLogout = async () => {
     localStorage.removeItem("authToken");
+
 
     try {
       //el token no existe, la funcion cmabia los estados del contexto para indicar que el usuario ya no está logeado
@@ -35,9 +47,14 @@ function MyNavbar() {
         <Nav className="me-auto">
 
           {isLoggedIn === true && (
+            <>
             <Nav.Link onClick={handleLogout}>Log out</Nav.Link>
+            <Nav.Link onClick={handleAllEvent}> All tournaments </Nav.Link>
+            </>
           )}
-          <Nav.Link>Log out</Nav.Link>
+           { role === "admin" && 
+           <Nav.Link onClick={handleAddEvent}>➕ New Tournament</Nav.Link>
+           }
 
         </Nav>
       </Navbar.Collapse>

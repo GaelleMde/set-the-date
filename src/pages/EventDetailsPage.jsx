@@ -82,6 +82,7 @@ const getComments = async () => {
              <p> Surface:{event.surface}</p>
              <p> Level:{event.level}</p>
              <p> Prize Money:{event.prizeMoney.toLocaleString()}$</p>
+             
              <hr />
 
              { role === "admin" && <button onClick={handleEdit}>Edit</button>}
