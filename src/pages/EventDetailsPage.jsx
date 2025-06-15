@@ -19,6 +19,15 @@ const handleEdit = () => {
   navigate(`/event/edit/${params.eventId}`);
 };
 
+const deleteEvent = async  () => {
+    await service.delete(`/event/${params.eventId}`)
+    try {
+        navigate(`/homepage`)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 useEffect (() =>{
 getEventDetails()
@@ -76,7 +85,7 @@ const getComments = async () => {
              <hr />
 
              { role === "admin" && <button onClick={handleEdit}>Edit</button>}
-             { role === "admin" && <button>Delete</button>}
+             { role === "admin" && <button onClick={deleteEvent}>Delete</button>}
 
             <h3>Comments</h3>
             {comment.map((eachComment) => (
