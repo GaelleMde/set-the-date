@@ -41,7 +41,7 @@ getUpcomingEvents()
   // loading handler here
 
 
-  if (allFavorites === null) {
+/*   if (allFavorites === null) {
     return <p>Loading your favorite tennis tournaments... 🎾</p>;
   }
 
@@ -55,6 +55,10 @@ getUpcomingEvents()
 
    if (allUpcomingEvent  === null) {
     return <p> Loading upcoming tennis events...⏳</p>;
+  } */
+
+     if (allFavorites === null || allUpcomingEvent === null) {
+    return <p>Loading your data... ⏳</p>;
   }
 
 
@@ -65,12 +69,17 @@ getUpcomingEvents()
       <h1>Homepage</h1>
       <h2>My favorites events</h2>
 
-
-     {allFavorites.map((eachFavorite) => (
+      {allFavorites.length === 0 ? (
+        <p>You don’t have any favorite tournaments saved yet 🎾</p>
+      ) : (
+     allFavorites.map((eachFavorite) => (
          <FavoriteCard key={eachFavorite._id} eachFavorite={eachFavorite}/>
-        ))} 
+        )))} 
 
       <h2>Upcoming event</h2>
+      {allUpcomingEvent.length === 0 ? (
+        <p>No upcoming events scheduled yet 🥲</p>
+      ) : (
        <div className = "upcoming-event-container"
     style = {{
     display: "flex",        
@@ -82,6 +91,7 @@ getUpcomingEvents()
         <UpcomingEventCard key={eachUpcomingEvent._id} eachUpcomingEvent={eachUpcomingEvent}/>
       ))}
 </div>
+      )} 
       
     { role === "admin" && <button>Only for Admin</button>}
     </div>

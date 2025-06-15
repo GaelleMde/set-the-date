@@ -28,12 +28,14 @@ function Login() {
     password
   }
 
+
   try {
     const response = await service.post(`/auth/login`, userCredentials)
     console.log("User successfully validated from the backend", response)
 
     //almacenamos el token en localStorage
     localStorage.setItem("authToken", response.data.authToken)
+   
     //crear el contexto y actualizar los estados del contexto
     await authenticateUser ()
     // redirecionamos al usuario a alguna pagina privada

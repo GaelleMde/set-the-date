@@ -1,35 +1,47 @@
-import { useState } from "react"
+import {useContext, useState } from "react"
 import service from "../services/service.config";
+import { useParams } from "react-router-dom";
+import { Authcontext } from "../context/auth.context";
 
 
 function AddComment() {
 
+
+
 const [comment, setComment] = useState("")
+const params = useParams()
+const { loggedUserId } = useContext(Authcontext)
+console.log("Logged-in user ID:", loggedUserId)
 
 const handleSubmit = (e) => {
     e.preventDefault();
     postComment();
 }
 
-const newComment = {
-    text: comment, 
-} 
+
+
 
 
  const postComment = async () => {
+
+const newComment = {
+    text: comment,
+    event: params.eventId,
+    user: loggedUserId,
+} 
+
    try {
-    console.log("Sending comment to server...");
     const response = await service.post(`/comment/`, newComment)
     console.log("Response from server:", response);
-    console.log(response)
-   } catch (error) {
-    console.log("Error sending comment:", error)
+    setComment("")
+       } catch (error) {
+    console.log(error)
    } 
 } 
 
   
 
-console.log(newComment)
+
 
 
   return (

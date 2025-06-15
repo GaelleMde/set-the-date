@@ -25,14 +25,15 @@ function MyNavbar() {
   return (
     <Navbar style={{ backgroundColor: "#1e90ff" }}>
       <Navbar.Brand as={Link} to="/" className="navbar-title">
-        <h1>Set the date</h1>
+        <h2>Set the date</h2>
       </Navbar.Brand>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
           {isLoggedIn === true && (
-            <Nav.Link onClick={handleLogout}>Log out</Nav.Link>
+            <Nav.Link onClick={handleLogout}>Log out</Nav.Link>,
+            <Nav.Link >Test</Nav.Link>
           )}
         </Nav>
       </Navbar.Collapse>

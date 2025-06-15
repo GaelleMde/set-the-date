@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import {Authcontext} from '../context/auth.context'
 import service from '../services/service.config'
 import { useParams } from "react-router-dom"
 import CommentCard from "../components/CommentCard"
@@ -6,6 +7,7 @@ import AddComment from '../components/AddComment'
 
 function EventDetailsPage() {
 
+const {role} = useContext(Authcontext)
 const [event, setEvent] = useState(null)
 const [comment, setComment] = useState(null)
 const params = useParams();
@@ -38,6 +40,8 @@ const getComments = async () => {
 }
 
 
+
+
   if (event === null) {
     return <h3>Loading your data...⏳</h3>;
   }
@@ -65,13 +69,19 @@ const getComments = async () => {
              <p> Prize Money:{event.prizeMoney.toLocaleString()}$</p>
              <hr />
 
+             { role === "admin" && <button>Edit</button>}
+             { role === "admin" && <button>Delete</button>}
+
             <h3>Comments</h3>
             {comment.map((eachComment) => (
         <CommentCard key={eachComment._id} eachComment={eachComment}/>
+        
       ))}
 
+          
       <AddComment/>
-    
+         
+
         </div> 
         
 
