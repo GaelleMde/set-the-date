@@ -3,7 +3,9 @@ import service from "../services/service.config";
 import { useState } from 'react'
 import { Form } from 'react-bootstrap'
 
+
 function AddEventPage() {
+const [isUploading, setIsUploading] = useState(false);
 
 const navigate = useNavigate()
 
@@ -15,11 +17,40 @@ const [country, setCountry] = useState("")
 const [startDate, setStartDate] = useState("")
 const [endDate, setEndDate] = useState("")
 const [currentChampion, setCurrentChampion] = useState("")
-const [category, setCategory] = useState("")
+const [category, setCategory] = useState("WTA")
 const [surface, setSurface] = useState("")
 const [level, setLevel] = useState("")
 const [prizeMoney, setPrizeMoney] = useState("")
  
+
+
+const handleFileUpload = async (event) => {
+  // console.log("The file to be uploaded is: ", e.target.files[0]);
+
+  if (!event.target.files[0]) {
+    // to prevent accidentally clicking the choose file button and not selecting a file
+    return;
+  }
+
+  setIsUploading(true);
+
+  const uploadData = new FormData(); // images and other files need to be sent to the backend in a FormData
+  uploadData.append("image", event.target.files[0]);
+
+  try {
+    const response = await service.post("http://localhost:5006/api/upload", uploadData)
+    // !IMPORTANT: Adapt the request structure to the one in your proyect (services, .env, auth, etc...)
+
+    setImageUrl(response.data.ImageUrl);
+    //                          |
+    //     this is how the backend sends the image to the frontend => res.json({ imageUrl: req.file.path });
+
+    setIsUploading(false); // to stop the loading animation
+  } catch (error) {
+    navigate("/error");
+  }
+}
+
   const handleAddEventSubmit = async (e) => {
     e.preventDefault();
     
@@ -51,11 +82,7 @@ const [prizeMoney, setPrizeMoney] = useState("")
   return (
      <div id="EventDetailsPage">
     
-               <img
-                src={ImageUrl}
-                alt={`Image of ${name}`}
-                style={{ width: "100%",   height: "300px" ,  objectFit: "cover", objectPosition: "center"}}
-              />
+ <h3>Add a new tournament</h3>
     
               <Form onSubmit={handleAddEventSubmit} id="edit-card">
     
@@ -172,15 +199,35 @@ const [prizeMoney, setPrizeMoney] = useState("")
               />
                 </Form.Group>
 
-            <Form.Group className="mb-3">
+     {/*        <Form.Group className="mb-3">
                   <Form.Label>Picture:</Form.Label>
                     <Form.Control
                 type="text"
                 value={ImageUrl}
                 onChange={(e) => setImageUrl(e.target.value)}
               />
-                </Form.Group>
-            <button type="submit"> Save changes</button> 
+                </Form.Group> */}
+
+              <Form.Group className="mb-3">
+                  <Form.Label>Picture:</Form.Label>
+                    <Form.Control
+              type="file"
+              name="image"
+              onChange={handleFileUpload}
+              disabled={isUploading}
+              />
+                </Form.Group> 
+
+
+  {isUploading && <div className="mt-2 text-muted">Uploading image...</div>}
+
+    {ImageUrl && (
+    <div className="mt-3">
+      <img src={ImageUrl} alt="uploaded" width={200} style={{ borderRadius: 8 }} />
+    </div>)}
+
+
+            <button type="submit"> Save tournament</button> 
                 
                  </Form>
                  <hr />
