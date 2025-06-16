@@ -57,13 +57,12 @@ useEffect(() => {
 getData()
   }, [])
 
-/*  const isFavorite = favorites.some((fav) => fav._id === eachEvent._id )
-  console.log(isFavorite) */
+
   
   return (
     <div>
 
-        <SearchBar searchInputValue={searchInputValue} setSearchInputValue={setSearchInputValue}/>
+        <SearchBar searchInputValue={searchInputValue} setSearchInputValue={setSearchInputValue} />
 
      {allEvent.length === 0 ? (
         <p>No upcoming events scheduled yet 🥲</p>
@@ -82,7 +81,7 @@ getData()
 
       })
       .map((eachEvent) => (
-        <AllEventCard key={eachEvent._id} eachEvent={eachEvent} searchInputValue={searchInputValue} favorites={allFavorites}/>
+        <AllEventCard key={eachEvent._id} eachEvent={eachEvent} searchInputValue={searchInputValue} favorites={allFavorites} getData={getData}/>
 
       ))      }
 

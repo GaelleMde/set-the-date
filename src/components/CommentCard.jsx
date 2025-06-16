@@ -1,8 +1,25 @@
-import React from 'react'
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import service from "../services/service.config";
+import {Authcontext} from '../context/auth.context'
+import { useContext } from "react"
 
 function CommentCard(props) {
 
     console.log(props.eachComment)
+    console.log(props.eachComment._id)
+
+    const {role} = useContext(Authcontext)
+
+    const handleDelete = async () => {
+    try {
+        await service.delete(`/comment/${props.eachComment._id}`)
+    } catch (error) {
+        console.log(error)
+    }
+    props.getData();
+}
+
+
   return (
     <div>
     <div className = "comment-card"
@@ -17,7 +34,7 @@ function CommentCard(props) {
     
 <h6>{props.eachComment.user.name} </h6>
     <p>{props.eachComment.text}</p> 
-    
+    { role === "admin" && <i className="bi bi-trash3" onClick={handleDelete}></i>}
     
     </div>
     </div>

@@ -15,6 +15,11 @@ const navigate = useNavigate();
 
 console.log(params)
 
+const getData = async () => {
+  await getEventDetails();
+  await getComments();
+}
+
 const handleEdit = () => {
   navigate(`/event/edit/${params.eventId}`);
 };
@@ -26,12 +31,13 @@ const deleteEvent = async  () => {
     } catch (error) {
         console.log(error)
     }
-}
+} 
 
 
 useEffect (() =>{
-getEventDetails()
-getComments()
+  getData();
+/* getEventDetails()
+getComments() */
 }, [])
 
 const getEventDetails = async () => {
@@ -90,7 +96,7 @@ const getComments = async () => {
 
             <h3>Comments</h3>
             {comment.map((eachComment) => (
-        <CommentCard key={eachComment._id} eachComment={eachComment}/>
+        <CommentCard key={eachComment._id} eachComment={eachComment} getData={getData} />
         
       ))}
 

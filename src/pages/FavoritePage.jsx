@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useEffect } from "react"
 import service from "../services/service.config"
+import FavoriteCard from "../components/FavoriteCard"
 
 function FavoritePage() {
 

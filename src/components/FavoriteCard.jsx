@@ -4,10 +4,11 @@ import { useNavigate } from "react-router-dom";
 function FavoriteCard(props) {
 
   const navigate = useNavigate();
-
+console.log(props)
   const handleClick = () => {
     navigate(`/event/${props.eachFavorite._id}`);
   };
+
 
 
   return (
@@ -23,7 +24,7 @@ function FavoriteCard(props) {
   }} >
     
     <h4>{props.eachFavorite.name}</h4>
-    <p>Date:{props.eachFavorite.startDate}</p>
+    <p>Date: {props.eachFavorite.startDate.slice(0,10)}</p>
     <p>Current champion: {props.eachFavorite.currentChampion}</p>
     
     </div>
