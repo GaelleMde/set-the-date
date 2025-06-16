@@ -9,6 +9,10 @@ function AllEventPage() {
 
 const [searchInputValue, setSearchInputValue] = useState("")
 const [allEvent, setAllEvent] = useState([])
+const [allFavorites, setAllFavorites] = useState([])
+
+
+/*  const getData = async () => {
 
     const getEvents = async () => {
     try {
@@ -20,11 +24,42 @@ const [allEvent, setAllEvent] = useState([])
     }
   }
 
+    const getFavorites = async () => {
+    try {
+      const response = await service.get(`user/favorite`)
+      console.log(response.data.favorites)
+      setAllFavorites(response.data.favorites) // almacenamos la data en setAllFavorites
+    } catch (error) {
+      console.log(error)
+    }
+  }
+} */
 
-    useEffect(() => {
-    getEvents()
+
+const getData = async () => {
+
+  try {
+    const AllEvents = await service.get(`/event`)
+    console.log(AllEvents.data)
+    setAllEvent(AllEvents.data)
+
+    const response = await service.get(`user/favorite`)
+    console.log(response.data.favorites)
+    setAllFavorites(response.data.favorites)
+    
+  } catch (error) {
+    console.log(error)
+  }
+
+}
+    
+useEffect(() => {
+getData()
   }, [])
 
+/*  const isFavorite = favorites.some((fav) => fav._id === eachEvent._id )
+  console.log(isFavorite) */
+  
   return (
     <div>
 
@@ -33,12 +68,8 @@ const [allEvent, setAllEvent] = useState([])
      {allEvent.length === 0 ? (
         <p>No upcoming events scheduled yet 🥲</p>
       ) : (
-       <div className = "upcoming-event-container"
-    style = {{
-    display: "flex",        
-    flexDirection: "row"
-    }}
-    >
+       <div className = "all-event-container" >
+
       {allEvent
       .filter((eachEvent) => {
         if (eachEvent.name.startsWith(searchInputValue)) {
@@ -51,8 +82,11 @@ const [allEvent, setAllEvent] = useState([])
 
       })
       .map((eachEvent) => (
-        <AllEventCard key={eachEvent._id} eachEvent={eachEvent} searchInputValue={searchInputValue} />
-      ))}
+        <AllEventCard key={eachEvent._id} eachEvent={eachEvent} searchInputValue={searchInputValue} favorites={allFavorites}/>
+
+      ))      }
+
+
 </div>
       )}    
     
