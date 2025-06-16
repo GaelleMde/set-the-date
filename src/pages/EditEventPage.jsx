@@ -6,6 +6,8 @@ import Row from 'react-bootstrap/Row';
 
 function EditEventPage() {
 
+const [isUploading, setIsUploading] = useState(false);
+
 const [ImageUrl, setImageUrl] = useState("")
 const [name, setName] = useState("")
 const [city, setCity] = useState("")
@@ -80,6 +82,38 @@ try {
     console.log(error)
 }
 }
+
+const handleFileUploadEdit = async (event) => {
+  // console.log("The file to be uploaded is: ", e.target.files[0]);
+
+  if (!event.target.files[0]) {
+    // to prevent accidentally clicking the choose file button and not selecting a file
+    return;
+  }
+
+  setIsUploading(true); // to start the loading animation
+
+  const uploadData = new FormData(); // images and other files need to be sent to the backend in a FormData
+  uploadData.append("image", event.target.files[0]);
+  //                   |
+  //     this name needs to match the name used in the middleware in the backend => uploader.single("image")
+
+  try {
+    const response = await service.post("http://localhost:5006/api/upload", uploadData)
+    // !IMPORTANT: Adapt the request structure to the one in your proyect (services, .env, auth, etc...)
+
+    setImageUrl(response.data.ImageUrl);
+    //                          |
+    //     this is how the backend sends the image to the frontend => res.json({ imageUrl: req.file.path });
+
+    setIsUploading(false); // to stop the loading animation
+  } catch (error) {
+    navigate("/error");
+  }
+};
+
+
+
 
 
 
@@ -208,6 +242,26 @@ try {
             onChange={(e) => setPrizeMoney(e.target.value)}
           />
             </Form.Group>
+
+
+          <Form.Group className="mb-3">
+                  <Form.Label>Picture:</Form.Label>
+                    <Form.Control
+              type="file"
+              name="image"
+              onChange={handleFileUploadEdit}
+              disabled={isUploading}
+              />
+                </Form.Group> 
+
+
+  {isUploading && <div className="mt-2 text-muted">Uploading image...</div>}
+
+    {ImageUrl && (
+    <div className="mt-3">
+      <img src={ImageUrl} alt="uploaded" width={200} style={{ borderRadius: 8 }} />
+    </div>)}
+
         <button type="submit"> Save changes</button> 
             
              </Form>
