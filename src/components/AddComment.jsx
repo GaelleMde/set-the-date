@@ -43,28 +43,23 @@ const newComment = {
 
 
   return (
-       <div style={{ backgroundColor: 'yellow', padding: '20px', fontWeight: 'bold' }}>
+       <div className="add-comment-section">
       <form onSubmit={handleSubmit}>
+       
       <input
         placeholder="Type your comment here..."
         type="text"
         value={comment}
         onChange={(e) => setComment(e.target.value)} 
-        style={{
-          width: "100%",
-          padding: "12px 15px",
-          borderRadius: "6px",
-          border: "1px solid #ccc",
-          fontSize: "16px",
-          marginBottom: "12px",
-          boxSizing: "border-box",
-        }} 
         />
+        
+        
        
+      <div>
        <button type="submit">
-        OK - envoyer commentaire        
+        <i class="bi bi-send"></i>      
        </button>
-
+</div>
 
       </form>
     </div>

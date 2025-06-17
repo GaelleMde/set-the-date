@@ -21,23 +21,16 @@ function CommentCard(props) {
 
 
   return (
-    <div>
-    <div className = "comment-card"
-    style={{
-    border: "2px solid #ccc",
-    padding: "10px",
-    borderRadius: "5px",
-    maxWidth: "300px",
-    margin: "10px auto",
-    boxShadow: "2px 2px 5px rgba(0,0,0,0.1)"
-  }} >
-    
-<h6>{props.eachComment.user.name} </h6>
+   
+    <div className = "comment-card" >
+    <div className="comment-content">
+<h6>{props.eachComment.user.name[0].toUpperCase() + props.eachComment.user.name.slice(1)} </h6>
     <p>{props.eachComment.text}</p> 
+    </div>
     { role === "admin" && <i className="bi bi-trash3" onClick={handleDelete}></i>}
     
     </div>
-    </div>
+    
   )
 }
 
