@@ -40,12 +40,20 @@ function AllEventCard(props) {
   
   return (
     <div className="all-event-card" >
-      <div className="all-event-card-data" onClick={handleClick}>
+      <div className="all-event-card-data-img">
+  <img src={props.eachEvent.ImageUrl} alt="" />
+  
+      <div className="all-event-card-content">
+          
+          
+          <div className="all-event-card-data" onClick={handleClick}>
         <h4>
           {props.eachEvent.name} - {props.eachEvent.category}
         </h4>
         <p>Date:{props.eachEvent.startDate.slice(0,10)}</p>
         <p>Surface: {props.eachEvent.surface}</p>
+      </div>
+      </div>
       </div>
       <div className="all-event-card-heart" >
           {isFavorite ? 
@@ -61,7 +69,7 @@ function AllEventCard(props) {
           <i
             className={"bi bi-heart-fill"}
             style={{
-              color: "red",
+              color: "#fbcd91",
               border: "none",
               fontSize: "20px"
             }}
@@ -78,13 +86,14 @@ function AllEventCard(props) {
           <i
             className={"bi bi-heart"}
             style={{
-              color: "red",
+              color: "#555555",
               border: "none",
               fontSize: "20px"
             }}
           ></i>{" "}</button>)}
-
-      </div>
+          
+</div>
+      
     </div>
   );
 }

@@ -60,8 +60,8 @@ getData()
 
   
   return (
-    <div>
-
+    <div className = "all-event-page">
+      <div className = "prueba">
         <SearchBar searchInputValue={searchInputValue} setSearchInputValue={setSearchInputValue} />
 
      {allEvent.length === 0 ? (
@@ -88,7 +88,7 @@ getData()
 
 </div>
       )}    
-    
+    </div>
     </div>
   )
 }

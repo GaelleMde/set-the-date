@@ -7,11 +7,11 @@ function SearchBar(props) {
     }
 
   return (
-    <div>
-        <h2>Search</h2>
+    
+        
           <input type="text" placeholder="Search tournaments... " onChange={handleSearch} value={props.searchInputValue}/>
 
-    </div>
+    
   )
 }
 
