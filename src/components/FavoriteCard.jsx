@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function FavoriteCard(props) {
 
@@ -13,20 +13,17 @@ console.log(props)
 
   return (
 
-    <div className = "favorite-card" onClick={handleClick}
-    style={{
-    border: "2px solid #ccc",
-    padding: "10px",
-    borderRadius: "5px",
-    maxWidth: "300px",
-    margin: "10px auto",
-    boxShadow: "2px 2px 5px rgba(0,0,0,0.1)"
-  }} >
+    <div className = "favorite-card" onClick={handleClick} >
     
-    <h4>{props.eachFavorite.name}</h4>
-    <p>Date: {props.eachFavorite.startDate.slice(0,10)}</p>
-    <p>Current champion: {props.eachFavorite.currentChampion}</p>
+    <img src={props.eachFavorite.ImageUrl} alt="" />
     
+    
+      <div className = "favorite-card-data">
+    <h4>{props.eachFavorite.name} - {props.eachFavorite.category} </h4>
+    <p><i class="bi bi-calendar3"></i>{props.eachFavorite.startDate.slice(0,10)} <br/><i class="bi bi-geo-alt"></i>{props.eachFavorite.city}  </p>
+    
+    
+    </div>
     </div>
   )
 }

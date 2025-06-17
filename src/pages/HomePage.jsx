@@ -65,22 +65,22 @@ getUpcomingEvents()
 
 
   return (
-    <div>
+    <div className="homepage-main">
+      <div className="title-homepage">
       
-      <h1>Homepage</h1>
       <h2>My favorites events</h2>
-            <Link to="/favorite">
+            <Link to="/favorite" className="favorite-link">
         <h6>View all my favorites</h6>
       </Link>
-      
-
+      </div>
+    <div className = "favorite-card-container">
       {allFavorites.length === 0 ? (
         <p>You don’t have any favorite tournaments saved yet 🎾</p>
       ) : (
      allFavorites.map((eachFavorite) => (
          <FavoriteCard key={eachFavorite._id} eachFavorite={eachFavorite}/>
         )))} 
-
+</div>
       <h2>Upcoming event</h2>
       
       {allUpcomingEvent.length === 0 ? (
@@ -95,7 +95,6 @@ getUpcomingEvents()
 </div>
       )} 
       
-    { role === "admin" && <button>Only for Admin</button>}
     </div>
   )
 }

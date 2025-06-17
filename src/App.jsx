@@ -26,9 +26,9 @@ function App() {
       <Navbar/>
 
     <Routes>
-      <Route path="/" element={<LandingPage/>}/>
+      <Route path="/" element={<Login/>}/>
       <Route path="/signup" element={<Signup/>}/>
-      <Route path="/login" element={<Login/>}/>
+      {/* <Route path="/login" element={<Login/>}/> */}
       <Route path="/homepage" element={<OnlyPrivate><HomePage/></OnlyPrivate>}/>
       <Route path="/event/new" element={<OnlyPrivate><AddEventPage/></OnlyPrivate>}/>
       <Route path="/event/:eventId" element={<OnlyPrivate><EventDetailsPage/></OnlyPrivate>}/>

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function UpcomingEventCard(props) {
 
@@ -9,22 +10,17 @@ function UpcomingEventCard(props) {
   };
 
   return (
-    //<div id="upcoming-card-container">
-       <div className = "upcoming-card" onClick={handleClick}
- /*    style={{
-    border: "2px solid #ccc",
-    padding: "10px",
-    borderRadius: "5px",
-    margin: "10px auto",
-    boxShadow: "2px 2px 5px rgba(0,0,0,0.1)"
-  }} */ >
-    
+   
+       <div className = "upcoming-card" onClick={handleClick} >
+    <img src={props.eachUpcomingEvent.ImageUrl} alt=""/>
+
+    <div className = "upcoming-card-data">
     <h4>{props.eachUpcomingEvent.name} - {props.eachUpcomingEvent.category}</h4>
-    <p>Date:{props.eachUpcomingEvent.startDate}</p>
+    <p><i class="bi bi-calendar3"></i> {props.eachUpcomingEvent.startDate.slice(0,10)}</p>
     <p>Surface: {props.eachUpcomingEvent.surface}</p>
-    
     </div>
-   //</div>
+    </div>
+   
   )
 }
 
