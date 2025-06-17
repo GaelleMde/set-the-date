@@ -8,7 +8,7 @@ import Signup from './pages/auth/Signup'
 import Login from './pages/auth/Login'
 import ErrorPage from './pages/ErrorPage'
 import LandingPage from './pages/LandingPage'
-import MyNavbar from './components/MyNavbar'
+import Navbar from './components/Navbar'
 import OnlyPrivate from './components/OnlyPrivate'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import EventDetailsPage from './pages/EventDetailsPage';
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div id="main-app-repere">
-      <MyNavbar/>
+      <Navbar/>
 
     <Routes>
       <Route path="/" element={<LandingPage/>}/>
