@@ -60,13 +60,15 @@ function Login() {
   return (
     <div className="login-main">
        <div className="left-part">
-        <img src="/pelotas-de-tenis-en-pista.jpg" alt="tennis ball" className="image-login" />
+        <img src="/Landing.svg" alt="tennis ball" className="image-login" />
        </div>
 
     <div className="form-part">
-      <Form onSubmit={handleLogin}>
+      
+      <Form onSubmit={handleLogin} className="container-form">
 
-        <h1>Login</h1>
+        <h1>Welcome back</h1>
+        <p>Please log in to continue</p>
 
         {errorMessage &&  <p>{errorMessage}</p>}
 
@@ -94,7 +96,8 @@ function Login() {
 
         <button type="submit">Login</button>
      </Form>
-      </div>
+     </div>
+     
     </div>
   );
 }

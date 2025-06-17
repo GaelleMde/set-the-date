@@ -44,7 +44,7 @@ function AllEventCard(props) {
         <h4>
           {props.eachEvent.name} - {props.eachEvent.category}
         </h4>
-        <p>Date:{props.eachEvent.startDate}</p>
+        <p>Date:{props.eachEvent.startDate.slice(0,10)}</p>
         <p>Surface: {props.eachEvent.surface}</p>
       </div>
       <div className="all-event-card-heart" >

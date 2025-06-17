@@ -51,10 +51,7 @@ const getEvent = async () => {
     }
 }
 
-/* const editEvent = async () => {
-    const eventResponse = await service.put(`/event/:${params.eventId}`)
-    console.log(eventResponse)
-} */
+
 
 const handleFormSubmit = async (e) => {
     e.preventDefault()

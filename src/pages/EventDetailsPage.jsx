@@ -82,7 +82,7 @@ const getComments = async () => {
           />
              <h2>{event.name} - {event.category} </h2>
              <p>{event.city}, {event.country}, {event.location}</p>
-             <p>From {event.startDate} to {event.endDate}</p>
+             <p>From {event.startDate.slice(0,10)} to {event.endDate.slice(0,10)}</p>
              <p>{event.name}</p>
              <p> Current Champion:{event.currentChampion}</p>
              <p> Surface:{event.surface}</p>
