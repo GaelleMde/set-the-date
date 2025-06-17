@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
-import HomePage from './pages/Home'
+import HomePage from './pages/HomePage'
 import Signup from './pages/auth/Signup'
 import Login from './pages/auth/Login'
 import ErrorPage from './pages/ErrorPage'
