@@ -50,8 +50,8 @@ function AllEventCard(props) {
         <h4>
           {props.eachEvent.name} - {props.eachEvent.category}
         </h4>
-        <p>Date:{props.eachEvent.startDate.slice(0,10)}</p>
-        <p>Surface: {props.eachEvent.surface}</p>
+        <p><i class="bi bi-calendar3"></i> {props.eachEvent.startDate.slice(0,10)}</p>
+        <p><i class="bi bi-geo-alt"></i> {props.eachEvent.city}, {props.eachEvent.country} </p>
       </div>
       </div>
       </div>
@@ -69,7 +69,7 @@ function AllEventCard(props) {
           <i
             className={"bi bi-heart-fill"}
             style={{
-              color: "#fbcd91",
+              color: "#00c4a6",
               border: "none",
               fontSize: "20px"
             }}
@@ -86,7 +86,7 @@ function AllEventCard(props) {
           <i
             className={"bi bi-heart"}
             style={{
-              color: "#555555",
+              color: "#00c4a6",
               border: "none",
               fontSize: "20px"
             }}
