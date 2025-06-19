@@ -4,6 +4,7 @@ import service from '../services/service.config'
 import FavoriteCard from '../components/FavoriteCard'
 import UpcomingEventCard from '../components/UpcomingEventCard'
 import { Link } from 'react-router-dom'
+import Spinner from 'react-bootstrap/Spinner';
 
 
 
@@ -44,11 +45,19 @@ getUpcomingEvents()
 
 
 
-     if (allFavorites === null || allUpcomingEvent === null) {
+/*      if (allFavorites === null || allUpcomingEvent === null) {
     return <p>Loading your data... ⏳</p>;
+  } */
+
+  if (allFavorites === null || allUpcomingEvent === null) {
+    return (
+      <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+    )
   }
-
-
 
   return (
     <div className="homepage-main">

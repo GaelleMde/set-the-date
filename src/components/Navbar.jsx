@@ -41,7 +41,11 @@ const handleFavorite = () => {
     <Navbar  expand="lg"  id="navbar" >
 
       <Navbar.Brand as={Link} to="/homepage" className="navbar-title">
-        <h2>Set the date</h2>
+          <img
+    src="/Logo.svg"
+    alt="Set the date logo"
+    style={{ height: '40px' }}
+  />
       </Navbar.Brand>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
