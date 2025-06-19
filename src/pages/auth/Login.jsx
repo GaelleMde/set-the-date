@@ -60,7 +60,7 @@ function Login() {
           <h1>Welcome back</h1>
           <p>Please log in to continue</p>
 
-          {errorMessage && <p>{errorMessage}</p>}
+          {errorMessage && <p style={{ color: '#ff6b6b', fontWeight: 700 }}>{errorMessage}</p>}
 
           <Form.Group className="mb-3">
             <Form.Label>Email:</Form.Label>

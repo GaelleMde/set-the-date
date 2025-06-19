@@ -51,7 +51,7 @@ function AuthWrapper(props) {
     <div className="d-flex flex-column justify-content-center align-items-center" style={{ height: '100vh' }}>
       <Spinner animation="border" role="status">
       </Spinner>
-      <p className="mt-3">Please wait a few minutes... the server is waking up 💤</p>
+      <p className="mt-3">Please wait a few seconds... the server is waking up 💤</p>
     </div>
     );
   }

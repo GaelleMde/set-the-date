@@ -54,7 +54,7 @@ function Signup() {
           <h1>Welcome aboard!</h1>
           <p>Create an account to get started</p>
 
-          {errorMessage && <p>{errorMessage}</p>}
+          {errorMessage && <p style={{ color: '#ff6b6b', fontWeight: 700 }}>{errorMessage}</p>}
 
           <Form.Group className="mb-3">
             <Form.Label>Email:</Form.Label>

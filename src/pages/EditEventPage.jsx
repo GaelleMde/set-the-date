@@ -150,7 +150,7 @@ const handleFileUploadEdit = async (event) => {
           >
             <option value="" disabled>Select an option</option>
            <option value="WTA">WTA</option>
-           <option value="APT">ATP</option>
+           <option value="ATP">ATP</option>
            </Form.Select>
             </Form.Group>
             
