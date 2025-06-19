@@ -37,10 +37,7 @@ function AddEventPage() {
     uploadData.append("image", event.target.files[0]);
 
     try {
-      const response = await service.post(
-        "/upload",
-        uploadData
-      );
+      const response = await service.post("/upload", uploadData);
       // !IMPORTANT: Adapt the request structure to the one in your proyect (services, .env, auth, etc...)
 
       setImageUrl(response.data.ImageUrl);
@@ -84,8 +81,8 @@ function AddEventPage() {
       <Form onSubmit={handleAddEventSubmit} className="edit-form">
         <h3>Add a new tournament</h3>
 
-        <Row >
-          <Col xs={12} md={8} >
+        <Row>
+          <Col xs={12} md={8}>
             <Form.Group className="mb-3">
               <Form.Label>Tournament's name:</Form.Label>
               <Form.Control
@@ -97,7 +94,7 @@ function AddEventPage() {
             </Form.Group>
           </Col>
 
-          <Col xs={12} md={4}  >
+          <Col xs={12} md={4}>
             <Form.Group className="mb-3">
               <Form.Label>Category:</Form.Label>
               <Form.Select
@@ -106,10 +103,11 @@ function AddEventPage() {
                 onChange={(e) => setCategory(e.target.value)}
                 required
               >
-                <option value="" disabled>Select an option</option>
+                <option value="" disabled>
+                  Select an option
+                </option>
                 <option value="WTA">WTA</option>
                 <option value="ATP">ATP</option>
-                
               </Form.Select>
             </Form.Group>
           </Col>
@@ -177,7 +175,6 @@ function AddEventPage() {
           </Col>
         </Row>
         <Row>
-         
           <Col xs={12} md={6}>
             <Form.Group className="mb-3">
               <Form.Label>Surface:</Form.Label>
@@ -187,7 +184,9 @@ function AddEventPage() {
                 onChange={(e) => setSurface(e.target.value)}
                 required
               >
-                <option value="" disabled>Select an option</option>
+                <option value="" disabled>
+                  Select an option
+                </option>
                 <option value="Hard">Hard</option>
                 <option value="Clay">Clay</option>
                 <option value="Grass">Grass</option>
@@ -203,7 +202,9 @@ function AddEventPage() {
                 onChange={(e) => setLevel(e.target.value)}
                 required
               >
-                <option value="" disabled>Select an option</option>
+                <option value="" disabled>
+                  Select an option
+                </option>
                 <option value="Grand Slam">Grand Slam</option>
                 <option value="1000">1000</option>
                 <option value="500">500</option>
@@ -213,8 +214,8 @@ function AddEventPage() {
           </Col>
         </Row>
 
-<Row>
-   <Col xs={12} md={6}>
+        <Row>
+          <Col xs={12} md={6}>
             <Form.Group className="mb-3">
               <Form.Label>Current champion</Form.Label>
               <Form.Control
@@ -225,19 +226,18 @@ function AddEventPage() {
               />
             </Form.Group>
           </Col>
-   <Col xs={12} md={6}>
-        <Form.Group className="mb-3">
-          <Form.Label>Prize Money:</Form.Label>
-          <Form.Control
-            type="number"
-            value={prizeMoney}
-            onChange={(e) => setPrizeMoney(e.target.value)}
-            required
-          />
-        </Form.Group>
-</Col>
-
-</Row>
+          <Col xs={12} md={6}>
+            <Form.Group className="mb-3">
+              <Form.Label>Prize Money:</Form.Label>
+              <Form.Control
+                type="number"
+                value={prizeMoney}
+                onChange={(e) => setPrizeMoney(e.target.value)}
+                required
+              />
+            </Form.Group>
+          </Col>
+        </Row>
 
         <Form.Group className="mb-3">
           <Form.Label>Picture:</Form.Label>
@@ -248,17 +248,14 @@ function AddEventPage() {
             required
             disabled={isUploading}
           />
-         
         </Form.Group>
-        
-         
 
         {isUploading && (
           <div className="mt-2 text-muted">Uploading image...</div>
         )}
 
         {ImageUrl && (
-          <div className="mt-3" style={{ textAlign: 'center' }} >
+          <div className="mt-3" style={{ textAlign: "center" }}>
             <img
               src={ImageUrl}
               alt="uploaded"
@@ -267,12 +264,10 @@ function AddEventPage() {
             />
           </div>
         )}
-<div className="div-button">
-        <button type="submit"> Save tournament</button>
+        <div className="div-button">
+          <button type="submit"> Save tournament</button>
         </div>
       </Form>
-    
-    
     </div>
   );
 }

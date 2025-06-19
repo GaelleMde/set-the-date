@@ -32,8 +32,9 @@ getFavorites()
     
 <div className="favorite-main">
   <div className="title-favorite">
-      <h2>My Favorites ❤️</h2> 
+      <h2>My Favorites ❤️</h2>
         </div>
+         
           {allFavorites.length === 0 ? (
         <p>You don’t have any favorite tournaments saved yet 🎾</p>
       ) : (

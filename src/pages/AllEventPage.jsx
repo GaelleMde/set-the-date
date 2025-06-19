@@ -65,7 +65,7 @@ getData()
         <SearchBar searchInputValue={searchInputValue} setSearchInputValue={setSearchInputValue} />
 
      {allEvent.length === 0 ? (
-        <p>No upcoming events scheduled yet 🥲</p>
+        <p>No tournaments yet 🥲</p>
       ) : (
        <div className = "all-event-container" >
 

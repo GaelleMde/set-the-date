@@ -31,7 +31,7 @@ getUpcomingEvents()
 
   const getUpcomingEvents = async () => {
     try {
-      const upcomingEvents = await service.get(`/event`)
+      const upcomingEvents = await service.get(`event/upcoming`)
       console.log(upcomingEvents.data)
       setAllUpcomingEvent(upcomingEvents.data)
     } catch (error) {
@@ -69,8 +69,8 @@ getUpcomingEvents()
 </div>
       <h2>Upcoming event</h2>
       
-      {allUpcomingEvent.length === 0 ? (
-        <p>No upcoming events scheduled yet 🥲</p>
+      {(!allUpcomingEvent || allUpcomingEvent.length === 0) ? (
+        <p className="no-upcoming-events"> No upcoming events scheduled yet 🥲</p>
       ) : (
 
         <div className="upcoming-card-container">
