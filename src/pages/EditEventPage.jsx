@@ -25,10 +25,12 @@ const [prizeMoney, setPrizeMoney] = useState("")
 const params = useParams()
 const navigate = useNavigate()
 
+function formatDateForInput(dateString) {
+  return dateString.slice(0, 10);
+}
+
 useEffect(()=>{
 getEvent()
-
- 
 }, [])
 
 const getEvent = async () => {
@@ -40,8 +42,8 @@ const getEvent = async () => {
     setCity(eventResponse.data.city)  
     setLocation(eventResponse.data.location) 
     setCountry (eventResponse.data.country) 
-    setStartDate(eventResponse.data.startDate)  
-    setEndDate(eventResponse.data.endDate)  
+    setStartDate(formatDateForInput(eventResponse.data.startDate))
+    setEndDate(formatDateForInput(eventResponse.data.endDate))
     setCurrentChampion(eventResponse.data.currentChampion)  
     setCategory(eventResponse.data.category)  
     setSurface(eventResponse.data.surface)  
@@ -281,8 +283,9 @@ const handleFileUploadEdit = async (event) => {
                     <Form.Control
               type="file"
               name="image"
+              
               onChange={handleFileUploadEdit}
-              required
+              
               disabled={isUploading}
               />
              
