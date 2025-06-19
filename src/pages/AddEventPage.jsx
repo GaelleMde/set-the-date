@@ -80,8 +80,8 @@ function AddEventPage() {
   };
 
   return (
-    <div id="add-form-page">
-      <Form onSubmit={handleAddEventSubmit} id="edit-form">
+    <div className="add-form-page">
+      <Form onSubmit={handleAddEventSubmit} className="edit-form">
         <h3>Add a new tournament</h3>
 
         <Row >
@@ -242,7 +242,7 @@ function AddEventPage() {
         )}
 
         {ImageUrl && (
-          <div className="mt-3">
+          <div className="mt-3" style={{ textAlign: 'center' }} >
             <img
               src={ImageUrl}
               alt="uploaded"

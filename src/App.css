@@ -209,7 +209,7 @@ justify-content: center;
 /***********EVENT PAGE DETAILS************/
 
 .event-details-page {
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -259,7 +259,7 @@ justify-content: center;
   gap: 10px;
 }
 
-#edit-form button,
+.edit-form button,
 .admin-buttons button {
   padding: 10px 20px;
   font-size: 16px;
@@ -279,7 +279,7 @@ justify-content: center;
  background-color: #ff6b6b;
 }
 
-#edit-form button:hover,
+.edit-form button:hover,
 #edit-button:hover,
 #delete-button:hover {
   filter: brightness(90%);
@@ -379,13 +379,13 @@ height: 100%;
 
 
 
-#add-form-page {
+.add-form-page {
 display: flex;
 flex-direction: column;
 align-items: center;
 }
 
-#edit-form {
+.edit-form {
   width: 80%;
   background-color: #f0f0f0;
   border-radius: 8px;
@@ -399,19 +399,19 @@ align-items: center;
   margin-top: 40px;
 }
 
-#edit-form h3 {
+.edit-form h3 {
   text-align: center;
   font-family: "DM Serif Display", serif; 
-  margin: 15px 0 40px 0;
+  margin: 15px 0 60px 0;
   color: black;
 }
 
-#edit-form label {
+.edit-form label {
   margin-bottom: 4px; 
   font-size: 14px;
 }
 
-#edit-form button {
+.edit-form button {
 background-color: #00c4a6;
 color: white;
 }

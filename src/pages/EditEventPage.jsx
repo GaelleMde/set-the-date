@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import service from '../services/service.config'
 import { Form } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row';
+import Col from "react-bootstrap/Col";
 
 function EditEventPage() {
 
@@ -117,17 +118,15 @@ const handleFileUploadEdit = async (event) => {
 
 
   return (
-    <div id="EventDetailsPage">
+    <div className="add-form-page">
 
-           <img
-            src={ImageUrl}
-            alt={`Image of ${name}`}
-            style={{ width: "100%",   height: "300px" ,  objectFit: "cover", objectPosition: "center"}}
-          />
 
-          <Form onSubmit={handleFormSubmit} id="edit-card">
-
-             <Form.Group className="mb-3">
+          <Form onSubmit={handleFormSubmit} className="edit-form">
+             <h3>Edit {name} - {category}</h3>
+<div className="event-info">
+   <Row >
+    <Col xs={12} md={8} >
+                 <Form.Group className="mb-3">
                 <Form.Label>Tournament's name:</Form.Label>
                 <Form.Control
             type="text"
@@ -135,7 +134,9 @@ const handleFileUploadEdit = async (event) => {
             onChange={(e) => setName(e.target.value)}
           />
             </Form.Group>
+            </Col>
 
+ <Col xs={12} md={4}  >
          <Form.Group className="mb-3">
         <Form.Label>Category:</Form.Label>
             <Form.Select
@@ -147,7 +148,12 @@ const handleFileUploadEdit = async (event) => {
            <option value="APT">ATP</option>
            </Form.Select>
             </Form.Group>
+            
+</Col>
+   </Row>
 
+<Row>
+<Col xs={12} md={4}>
       <Form.Group className="mb-3">
         <Form.Label>City:</Form.Label>
                 <Form.Control
@@ -156,7 +162,8 @@ const handleFileUploadEdit = async (event) => {
             onChange={(e) => setCity(e.target.value)}
           />
             </Form.Group>
-            
+            </Col>
+<Col xs={12} md={4}>
                <Form.Group className="mb-3">
               <Form.Label>Country:</Form.Label>
                 <Form.Control
@@ -165,7 +172,8 @@ const handleFileUploadEdit = async (event) => {
             onChange={(e) => setCountry(e.target.value)}
           />
             </Form.Group>
-
+</Col>
+<Col xs={12} md={4}>
                <Form.Group className="mb-3">
               <Form.Label>Location:</Form.Label>
                 <Form.Control
@@ -174,7 +182,10 @@ const handleFileUploadEdit = async (event) => {
             onChange={(e) => setLocation(e.target.value)}
           />
             </Form.Group>
-
+           </Col>
+</Row>
+<Row>
+<Col>
             <Form.Group className="mb-3">
               <Form.Label>Start date:</Form.Label>
                 <Form.Control
@@ -183,7 +194,8 @@ const handleFileUploadEdit = async (event) => {
             onChange={(e) => setStartDate(e.target.value)}
           />
             </Form.Group>
-
+            </Col>
+<Col>
         <Form.Group className="mb-3">
               <Form.Label>End Date:</Form.Label>
                 <Form.Control
@@ -192,17 +204,13 @@ const handleFileUploadEdit = async (event) => {
             onChange={(e) => setEndDate(e.target.value)}
           />
             </Form.Group>
+            </Col>
+            </Row>
+
+<Row>
 
 
-         <Form.Group className="mb-3">
-              <Form.Label>Current champion</Form.Label>
-                <Form.Control
-            type="text"
-            value={currentChampion}
-            onChange={(e) => setCurrentChampion(e.target.value)}
-          />
-            </Form.Group>
-
+<Col xs={12} md={6}>
             <Form.Group className="mb-3">
                 <Form.Label>Surface:</Form.Label>
             <Form.Select
@@ -215,7 +223,9 @@ const handleFileUploadEdit = async (event) => {
            <option value="Grass">Grass</option>
            </Form.Select>
             </Form.Group>
+            </Col>
 
+<Col xs={12} md={6}>
             <Form.Group className="mb-3">
             <Form.Label>Level:</Form.Label>
             <Form.Select
@@ -229,8 +239,20 @@ const handleFileUploadEdit = async (event) => {
            <option value="250">250</option>
            </Form.Select>
             </Form.Group>
-
-
+            </Col>
+</Row>
+<Row>
+    <Col xs={12} md={6}>
+         <Form.Group className="mb-3">
+              <Form.Label>Current champion</Form.Label>
+                <Form.Control
+            type="text"
+            value={currentChampion}
+            onChange={(e) => setCurrentChampion(e.target.value)}
+          />
+            </Form.Group>
+            </Col>
+  <Col xs={12} md={6}>
         <Form.Group className="mb-3">
               <Form.Label>Prize Money:</Form.Label>
                 <Form.Control
@@ -239,7 +261,8 @@ const handleFileUploadEdit = async (event) => {
             onChange={(e) => setPrizeMoney(e.target.value)}
           />
             </Form.Group>
-
+            </Col>
+</Row>
 
           <Form.Group className="mb-3">
                   <Form.Label>Picture:</Form.Label>
@@ -249,21 +272,25 @@ const handleFileUploadEdit = async (event) => {
               onChange={handleFileUploadEdit}
               disabled={isUploading}
               />
+             
                 </Form.Group> 
 
 
   {isUploading && <div className="mt-2 text-muted">Uploading image...</div>}
 
     {ImageUrl && (
-    <div className="mt-3">
+    <div className="mt-3" style={{ textAlign: 'center' }} >
       <img src={ImageUrl} alt="uploaded" width={200} style={{ borderRadius: 8 }} />
     </div>)}
-
+<div className="div-button">
         <button type="submit"> Save changes</button> 
-            
+            </div>
+            </div>
              </Form>
-             <hr />
-      </div> 
+              
+         
+            
+      </div>
    
   )
 }
