@@ -6,7 +6,7 @@ function UpcomingEventCard(props) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/upcoming/${props.eachUpcomingEvent._id}`);
+    navigate(`/event/${props.eachUpcomingEvent._id}`);
   };
 
   return (

@@ -90,7 +90,8 @@ getComments() */
             {role === "admin" && <button id="edit-button" onClick={handleEdit}>Edit</button>}
             {role === "admin" && <button id="delete-button" onClick={deleteEvent}>Delete</button>}
           </div>
-          <hr />
+          {role === "admin" && <hr />}
+          
         </div>
       </div>
      

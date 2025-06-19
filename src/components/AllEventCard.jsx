@@ -40,18 +40,20 @@ function AllEventCard(props) {
   
   return (
     <div className="all-event-card" >
+      <div onClick={handleClick}>
       <div className="all-event-card-data-img">
   <img src={props.eachEvent.ImageUrl} alt="" />
   
       <div className="all-event-card-content">
           
           
-          <div className="all-event-card-data" onClick={handleClick}>
+          <div className="all-event-card-data" >
         <h4>
           {props.eachEvent.name} - {props.eachEvent.category}
         </h4>
         <p><i class="bi bi-calendar3"></i> {props.eachEvent.startDate.slice(0,10)}</p>
         <p><i class="bi bi-geo-alt"></i> {props.eachEvent.city}, {props.eachEvent.country} </p>
+      </div>
       </div>
       </div>
       </div>

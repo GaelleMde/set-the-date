@@ -231,6 +231,7 @@ function AddEventPage() {
               <Form.Label>Prize Money:</Form.Label>
               <Form.Control
                 type="number"
+                min="0"
                 value={prizeMoney}
                 onChange={(e) => setPrizeMoney(e.target.value)}
                 required

@@ -17,6 +17,8 @@ import AddEventPage from './pages/AddEventPage';
 import ConfirmationPage from './pages/ConfirmationPage';
 import FavoritePage from './pages/FavoritePage';
 import AllEventPage from './pages/AllEventPage';
+import NotFoudPage from './pages/NotFoudPage';
+
 
 function App() {
   
@@ -37,6 +39,7 @@ function App() {
       <Route path="/event/all" element={<OnlyPrivate><AllEventPage /></OnlyPrivate>} />
       <Route path="/favorite" element={<OnlyPrivate><FavoritePage /></OnlyPrivate>} />
       <Route path="/error" element={<ErrorPage/>}/>
+      <Route path="*" element={<NotFoudPage />}/>
 
     </Routes>
     </div>
