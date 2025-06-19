@@ -146,6 +146,7 @@ const handleFileUploadEdit = async (event) => {
             onChange={(e) => setCategory(e.target.value)}
             required
           >
+            <option value="" disabled>Select an option</option>
            <option value="WTA">WTA</option>
            <option value="APT">ATP</option>
            </Form.Select>

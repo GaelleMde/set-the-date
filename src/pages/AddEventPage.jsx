@@ -18,7 +18,7 @@ function AddEventPage() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [currentChampion, setCurrentChampion] = useState("");
-  const [category, setCategory] = useState("WTA");
+  const [category, setCategory] = useState("");
   const [surface, setSurface] = useState("");
   const [level, setLevel] = useState("");
   const [prizeMoney, setPrizeMoney] = useState("");
@@ -106,6 +106,7 @@ function AddEventPage() {
                 onChange={(e) => setCategory(e.target.value)}
                 required
               >
+                <option value="" disabled>Select an option</option>
                 <option value="WTA">WTA</option>
                 <option value="ATP">ATP</option>
                 
@@ -186,6 +187,7 @@ function AddEventPage() {
                 onChange={(e) => setSurface(e.target.value)}
                 required
               >
+                <option value="" disabled>Select an option</option>
                 <option value="Hard">Hard</option>
                 <option value="Clay">Clay</option>
                 <option value="Grass">Grass</option>
@@ -201,6 +203,7 @@ function AddEventPage() {
                 onChange={(e) => setLevel(e.target.value)}
                 required
               >
+                <option value="" disabled>Select an option</option>
                 <option value="Grand Slam">Grand Slam</option>
                 <option value="1000">1000</option>
                 <option value="500">500</option>
