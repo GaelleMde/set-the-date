@@ -42,21 +42,7 @@ getUpcomingEvents()
   // loading handler here
 
 
-/*   if (allFavorites === null) {
-    return <p>Loading your favorite tennis tournaments... 🎾</p>;
-  }
 
-  if (allFavorites.length === 0) {
-    return <p>You don’t have any favorite tournaments saved yet 🎾</p>;
-  }
-
-   if (allUpcomingEvent.length === 0) {
-    return <p>No upcoming events scheduled yet 🥲</p>;
-  }
-
-   if (allUpcomingEvent  === null) {
-    return <p> Loading upcoming tennis events...⏳</p>;
-  } */
 
      if (allFavorites === null || allUpcomingEvent === null) {
     return <p>Loading your data... ⏳</p>;

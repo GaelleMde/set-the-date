@@ -19,6 +19,9 @@ const handleAddEvent = () => {
 const handleAllEvent = () => {
   navigate(`/event/all`)
 }
+const handleFavorite = () => {
+  navigate(`/favorite`)
+}
 
   const handleLogout = async () => {
     localStorage.removeItem("authToken");
@@ -49,6 +52,10 @@ const handleAllEvent = () => {
 
           {isLoggedIn === true && (
             <Nav.Link onClick={handleAllEvent}> All tournaments </Nav.Link>
+          )}
+
+          {isLoggedIn === true && (
+            <Nav.Link onClick={handleFavorite}> My Favorites ❤️</Nav.Link>
           )}
 
            { role === "admin" && 

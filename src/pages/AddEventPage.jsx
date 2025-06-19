@@ -38,7 +38,7 @@ function AddEventPage() {
 
     try {
       const response = await service.post(
-        "http://localhost:5006/api/upload",
+        "/upload",
         uploadData
       );
       // !IMPORTANT: Adapt the request structure to the one in your proyect (services, .env, auth, etc...)
@@ -92,6 +92,7 @@ function AddEventPage() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required
               />
             </Form.Group>
           </Col>
@@ -103,9 +104,11 @@ function AddEventPage() {
                 type="text"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
+                required
               >
                 <option value="WTA">WTA</option>
                 <option value="ATP">ATP</option>
+                
               </Form.Select>
             </Form.Group>
           </Col>
@@ -119,6 +122,7 @@ function AddEventPage() {
                 type="text"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
+                required
               />
             </Form.Group>
           </Col>
@@ -130,6 +134,7 @@ function AddEventPage() {
                 type="text"
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
+                required
               />
             </Form.Group>
           </Col>
@@ -140,6 +145,7 @@ function AddEventPage() {
                 type="text"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
+                required
               />
             </Form.Group>
           </Col>
@@ -153,6 +159,7 @@ function AddEventPage() {
                 type="date"
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
+                required
               />
             </Form.Group>
           </Col>
@@ -163,6 +170,7 @@ function AddEventPage() {
                 type="date"
                 value={endDate}
                 onChange={(e) => setEndDate(e.target.value)}
+                required
               />
             </Form.Group>
           </Col>
@@ -176,6 +184,7 @@ function AddEventPage() {
                 type="text"
                 value={surface}
                 onChange={(e) => setSurface(e.target.value)}
+                required
               >
                 <option value="Hard">Hard</option>
                 <option value="Clay">Clay</option>
@@ -190,6 +199,7 @@ function AddEventPage() {
                 type="text"
                 value={level}
                 onChange={(e) => setLevel(e.target.value)}
+                required
               >
                 <option value="Grand Slam">Grand Slam</option>
                 <option value="1000">1000</option>
@@ -208,6 +218,7 @@ function AddEventPage() {
                 type="text"
                 value={currentChampion}
                 onChange={(e) => setCurrentChampion(e.target.value)}
+                required
               />
             </Form.Group>
           </Col>
@@ -218,6 +229,7 @@ function AddEventPage() {
             type="number"
             value={prizeMoney}
             onChange={(e) => setPrizeMoney(e.target.value)}
+            required
           />
         </Form.Group>
 </Col>
@@ -230,6 +242,7 @@ function AddEventPage() {
             type="file"
             name="image"
             onChange={handleFileUpload}
+            required
             disabled={isUploading}
           />
          

@@ -97,7 +97,7 @@ const handleFileUploadEdit = async (event) => {
   //     this name needs to match the name used in the middleware in the backend => uploader.single("image")
 
   try {
-    const response = await service.post("http://localhost:5006/api/upload", uploadData)
+    const response = await service.post("/upload", uploadData)
     // !IMPORTANT: Adapt the request structure to the one in your proyect (services, .env, auth, etc...)
 
     setImageUrl(response.data.ImageUrl);
@@ -132,6 +132,7 @@ const handleFileUploadEdit = async (event) => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            required
           />
             </Form.Group>
             </Col>
@@ -143,6 +144,7 @@ const handleFileUploadEdit = async (event) => {
             type="text"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
+            required
           >
            <option value="WTA">WTA</option>
            <option value="APT">ATP</option>
@@ -160,6 +162,7 @@ const handleFileUploadEdit = async (event) => {
             type="text"
             value={city}
             onChange={(e) => setCity(e.target.value)}
+            required
           />
             </Form.Group>
             </Col>
@@ -170,6 +173,7 @@ const handleFileUploadEdit = async (event) => {
             type="text"
             value={country}
             onChange={(e) => setCountry(e.target.value)}
+            required
           />
             </Form.Group>
 </Col>
@@ -180,6 +184,7 @@ const handleFileUploadEdit = async (event) => {
             type="text"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
+            required
           />
             </Form.Group>
            </Col>
@@ -192,6 +197,7 @@ const handleFileUploadEdit = async (event) => {
             type="date"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
+            required
           />
             </Form.Group>
             </Col>
@@ -202,6 +208,7 @@ const handleFileUploadEdit = async (event) => {
             type="date"
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
+            required
           />
             </Form.Group>
             </Col>
@@ -217,6 +224,7 @@ const handleFileUploadEdit = async (event) => {
             type="text"
             value={surface}
             onChange={(e) => setSurface(e.target.value)}
+            required
           >
            <option value="Hard">Hard</option>
            <option value="Clay">Clay</option>
@@ -232,6 +240,7 @@ const handleFileUploadEdit = async (event) => {
             type="text"
             value={level}
             onChange={(e) => setLevel(e.target.value)}
+            required
           >
            <option value="Grand Slam">Grand Slam</option>
            <option value="1000">1000</option>
@@ -249,6 +258,7 @@ const handleFileUploadEdit = async (event) => {
             type="text"
             value={currentChampion}
             onChange={(e) => setCurrentChampion(e.target.value)}
+            required
           />
             </Form.Group>
             </Col>
@@ -259,6 +269,7 @@ const handleFileUploadEdit = async (event) => {
             type="number"
             value={prizeMoney}
             onChange={(e) => setPrizeMoney(e.target.value)}
+            required
           />
             </Form.Group>
             </Col>
@@ -270,6 +281,7 @@ const handleFileUploadEdit = async (event) => {
               type="file"
               name="image"
               onChange={handleFileUploadEdit}
+              required
               disabled={isUploading}
               />
              

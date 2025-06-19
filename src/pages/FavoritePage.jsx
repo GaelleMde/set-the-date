@@ -27,14 +27,20 @@ getFavorites()
   }
 
   return (
-
-    <div>   
+  
+<div>
+    
+<div className="favorite-main">
+  <div className="title-favorite">
+      <h2>My Favorites ❤️</h2> 
+        </div>
           {allFavorites.length === 0 ? (
         <p>You don’t have any favorite tournaments saved yet 🎾</p>
       ) : (
      allFavorites.map((eachFavorite) => (
          <FavoriteCard key={eachFavorite._id} eachFavorite={eachFavorite}/>
         )))} 
+        </div>
         </div>
   )
 }
