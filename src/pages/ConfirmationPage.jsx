@@ -5,7 +5,7 @@ function ConfirmationPage() {
         <div className="text-center mt-5">
       <h2>✅ Tournament successfully created!</h2>
      
-      <Link to="/homepage">
+      <Link to="/">
         <button className="btn btn-primary mt-3">Back to homepage</button>
       </Link>
     </div>

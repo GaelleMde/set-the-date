@@ -37,7 +37,7 @@ function MyNavbar() {
 
   return (
     <Navbar expand="lg" id="navbar">
-      <Navbar.Brand as={Link} to="/homepage" className="navbar-title">
+      <Navbar.Brand as={Link} to="/" className="navbar-title">
         <img
           src="/Logo.svg"
           alt="Set the date logo"
@@ -49,9 +49,9 @@ function MyNavbar() {
 
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-          {isLoggedIn === true && (
+          
             <Nav.Link onClick={handleAllEvent}> All tournaments </Nav.Link>
-          )}
+          
 
           {isLoggedIn === true && (
             <Nav.Link onClick={handleFavorite}> My Favorites ❤️</Nav.Link>
@@ -71,9 +71,7 @@ function MyNavbar() {
             </Nav.Link>
           )}
 
-          {/*   {isLoggedIn === true && (
-           <Nav.Link onClick={handleLogout}>Log out</Nav.Link>
-           )} */}
+      
         </Nav>
       </Navbar.Collapse>
     </Navbar>

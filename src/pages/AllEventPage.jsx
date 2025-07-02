@@ -1,16 +1,17 @@
 import UpcomingEventCard from "../components/UpcomingEventCard"
-import { useEffect } from "react"
-import { useState } from "react"
+
 import service from "../services/service.config"
 import SearchBar from "../components/SearchBar"
 import AllEventCard from "../components/AllEventCard"
+import { Authcontext } from "../context/auth.context";
+import { useContext, useEffect, useState } from "react";
 
 function AllEventPage() {
 
 const [searchInputValue, setSearchInputValue] = useState("")
 const [allEvent, setAllEvent] = useState([])
 const [allFavorites, setAllFavorites] = useState([])
-
+const { isLoggedIn } = useContext(Authcontext);
 
 /*  const getData = async () => {
 
@@ -43,10 +44,12 @@ const getData = async () => {
     console.log(AllEvents.data)
     setAllEvent(AllEvents.data)
 
+    if (isLoggedIn) {
     const response = await service.get(`user/favorite`)
     console.log(response.data.favorites)
     setAllFavorites(response.data.favorites)
-    
+    } 
+
   } catch (error) {
     console.log(error)
   }
