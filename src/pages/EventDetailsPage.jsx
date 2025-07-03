@@ -82,10 +82,9 @@ getComments() */
           <h2>
             {event.name} - {event.category}{" "}
           </h2>
-          <span className="surface">
-            {event.surface === "Clay" && <>🟠 Clay</>}
-            {event.surface === "Grass" && <>🟢 Grass</>}
-            {event.surface === "Hard" && <>🔵 Hard</>}
+          <span className = {`surface ${event.surface.toLowerCase()}`}>
+            {event.surface}
+
             </span>
           </div>
           <p> <i class="bi bi-geo-alt"></i> {event.city}, {event.country}, {event.location} </p>

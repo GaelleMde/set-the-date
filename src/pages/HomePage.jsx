@@ -82,7 +82,7 @@ function HomePage() {
         )
         )}
       </div>
-      <h2>Upcoming tournaments</h2>
+      <h2>Tournaments Schedule</h2>
 
       {!allUpcomingEvent || allUpcomingEvent.length === 0 ? (
         <p className="no-upcoming-events">
