@@ -31,7 +31,7 @@ function Signup() {
       const response = await service.post(`/auth/signup`, newUser);
 
       console.log("todo bien, el backend respondio", response);
-      navigate("/"); // ******CAMBIAR - REDIRRECION DESPUES DE HACER SIGN UP *******
+      navigate("/login"); // ******CAMBIAR - REDIRRECION DESPUES DE HACER SIGN UP *******
     } catch (error) {
       console.log(error);
       if (error.response.status === 400) {
