@@ -79,7 +79,7 @@
   color: #00c4a6;
   text-decoration: none;
   margin: 16px;
-  
+
 }
 
 .favorite-link {
@@ -521,8 +521,8 @@
 /***********HOMEPAGE ************/
 
 #auth-reminder img {
-  height: 130px;
-  width: 100px;
+ 
+  border-radius: 10px;
 }
 
 #auth-reminder {

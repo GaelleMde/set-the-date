@@ -31,7 +31,7 @@ function EventDetailsPage() {
   const deleteEvent = async () => {
     await service.delete(`/event/${params.eventId}`);
     try {
-      navigate(`/homepage`);
+      navigate(`/`);
     } catch (error) {
       console.log(error);
     }

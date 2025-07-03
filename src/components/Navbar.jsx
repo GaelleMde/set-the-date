@@ -22,6 +22,10 @@ function MyNavbar() {
     navigate(`/favorite`);
   };
 
+  const handleLogin = () => {
+    navigate(`/login`)
+  }
+
   const handleLogout = async () => {
     localStorage.removeItem("authToken");
 
@@ -69,6 +73,10 @@ function MyNavbar() {
                 style={{ marginLeft: "8px" }}
               ></i>
             </Nav.Link>
+          )}
+
+          {isLoggedIn === false && (
+            <Nav.Link onClick={handleLogin}> Log in/Sign Up</Nav.Link>
           )}
 
       

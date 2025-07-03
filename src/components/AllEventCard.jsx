@@ -1,12 +1,14 @@
 import { useNavigate, useParams } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import service from "../services/service.config";
-
+import { Authcontext } from "../context/auth.context";
+import { useContext } from "react";
 
 function AllEventCard(props) {
 
   const navigate = useNavigate();
   const params = useParams();
+  const { isLoggedIn } = useContext(Authcontext);
 
   console.log(props) 
   console.log(params)
@@ -57,6 +59,7 @@ function AllEventCard(props) {
       </div>
       </div>
       </div>
+      {isLoggedIn && (
       <div className="all-event-card-heart" >
           {isFavorite ? 
             ( <button onClick={handleFavoriteClick}
@@ -93,9 +96,10 @@ function AllEventCard(props) {
               fontSize: "20px"
             }}
           ></i>{" "}</button>)}
+
           
 </div>
-      
+      )}
     </div>
   );
 }

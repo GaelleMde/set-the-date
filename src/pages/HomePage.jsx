@@ -68,7 +68,7 @@ function HomePage() {
         {isLoggedIn === false && (
           <div id="auth-reminder">
             <p> <Link to="/login">Log in <i className="bi bi-box-arrow-up-right" style={{ fontSize: "14px" }} ></i></Link> or <Link to="/signup">Create an account <i className="bi bi-box-arrow-up-right" style={{ fontSize: "14px" }}></i></Link>  to save your favorite tournaments! </p>
-            <img src="/tennis-player.png" alt="" />
+            <img src="/gif-federer-nadal.gif" alt="" />
             </div>
           )}
 
