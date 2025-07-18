@@ -5,6 +5,7 @@ import FavoriteCard from "../components/FavoriteCard";
 import UpcomingEventCard from "../components/UpcomingEventCard";
 import { Link } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
+import NotLoggedInMessage from "../components/NotLoggedInMessage";
 
 function HomePage() {
   const { role } = useContext(Authcontext);
@@ -63,13 +64,19 @@ function HomePage() {
           <h6>View all my favorites</h6>)}
         </Link>
       </div>
-      <div className="favorite-card-container">
+      <div className="favorite-card-container"> 
 
-        {isLoggedIn === false && (
-          <div id="auth-reminder">
-            <p> <Link to="/login">Log in <i className="bi bi-box-arrow-up-right" style={{ fontSize: "14px" }} ></i></Link> or <Link to="/signup">Create an account <i className="bi bi-box-arrow-up-right" style={{ fontSize: "14px" }}></i></Link>  to save your favorite tournaments! </p>
-            <img src="/gif-federer-nadal.gif" alt="" />
-            </div>
+        {isLoggedIn === false && (<NotLoggedInMessage/>
+       //<div>
+          // <div className = "favorite-card">
+          //  test
+           // </div>
+         // <div id="auth-reminder">
+           // <p> <Link to="/login">Log in <i className="bi bi-box-arrow-up-right" style={{ fontSize: "14px" }} ></i></Link> or <Link to="/signup">Create an account <i className="bi bi-box-arrow-up-right" style={{ fontSize: "14px" }}></i></Link>  to save your favorite tournaments! </p>
+           // <img src="/gif-federer-nadal.gif" alt="" />
+           // </div>
+          //  </div> 
+            
           )}
 
         {isLoggedIn === true && (
@@ -81,7 +88,7 @@ function HomePage() {
           ))
         )
         )}
-      </div>
+       </div> 
       <h2>Tournaments Schedule</h2>
 
       {!allUpcomingEvent || allUpcomingEvent.length === 0 ? (
