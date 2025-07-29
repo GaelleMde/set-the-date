@@ -6,7 +6,9 @@ import CommentCard from "../components/CommentCard";
 import AddComment from "../components/AddComment";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Link } from "react-router-dom";
-
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function EventDetailsPage() {
   const { role } = useContext(Authcontext);
@@ -39,8 +41,6 @@ function EventDetailsPage() {
 
   useEffect(() => {
     getData();
-    /* getEventDetails()
-getComments() */
   }, []);
 
   const getEventDetails = async () => {
@@ -73,57 +73,129 @@ getComments() */
     return <h3>Loading your data...⏳</h3>;
   }
 
+  const startDate = new Date(event.startDate);
+  const endDate = new Date(event.endDate);
+
+  function formatDate(startDate, endDate) {
+    if (startDate.getMonth() === endDate.getMonth()) {
+      return `${startDate.getDate()}-${endDate.getDate()} ${endDate.toLocaleString(
+        "en-US",
+        { month: "long" }
+      )}, ${endDate.getFullYear()}`;
+    } else {
+      return `${startDate.getDate()} ${startDate.toLocaleString("en-US", {
+        month: "long",
+      })}-${endDate.getDate()} ${endDate.toLocaleString("en-US", {
+        month: "long",
+      })},${endDate.getFullYear()}`;
+    }
+  }
+
   return (
     <div className="event-details-page">
       <div className="event-card">
         <img src={event.ImageUrl} alt={`Image of ${event.name}`} />
         <div className="event-info">
-        <div className="name-surface">
-          <h2>
-            {event.name} - {event.category}{" "}
-          </h2>
-          <span className = {`surface ${event.surface.toLowerCase()}`}>
-            {event.surface}
-
+          <div className="event-header">
+            <div className="event-main-info">
+              <h1>
+                {event.name} - {event.category}
+              </h1>
+              <h3>{formatDate(startDate, endDate)}</h3>
+            </div>
+            <span className={`surface ${event.surface.toLowerCase()}`}>
+              {event.surface}
             </span>
           </div>
-          <p> <i class="bi bi-geo-alt"></i> {event.city}, {event.country}, {event.location} </p>
-          <p> <i class="bi bi-calendar3"></i> From {event.startDate.slice(0, 10)} to {event.endDate.slice(0, 10)}
-          </p>
-          <p> <i class="bi bi-person-fill"></i> Current Champion:{event.currentChampion}</p>
-          {/* <p> <i class="bi bi-slash-circle"></i> Surface:{event.surface}</p> */}
-          <p><i class="bi bi-trophy"></i>  Level:{event.level}</p>
-          <p> <i class="bi bi-cash"></i> Prize Money:{event.prizeMoney.toLocaleString()}$</p>
 
+          <div className="event-details-info">
+            <div className="event-grid">
+
+              <div className="label-value">
+                <span>Location</span>
+                <span className="value">
+                  {event.city}, {event.country}
+                </span>
+              </div>
+
+              <div className="label-value">
+                <span>Venue</span>
+                <span className="value">{event.location}</span>
+              </div>
+              <div className="label-value">
+                <span>Current Champion</span>
+                <span className="value">{event.currentChampion}</span>
+              </div>
+
+              <div className="label-value">
+                <span>Level</span>
+                <span className="value">
+                  {event.category} {event.level}
+                </span>
+              </div>
+
+              <div className="label-value">
+                <span>Prize Money</span>
+                <span className="value">
+                  {event.prizeMoney.toLocaleString()}$
+                </span>
+              </div>
+            </div>
+          </div>
+
+  
           <hr />
           <div className="admin-buttons">
-            {role === "admin" && <button id="edit-button" onClick={handleEdit}>Edit</button>}
-            {role === "admin" && <button id="delete-button" onClick={deleteEvent}>Delete</button>}
+            {role === "admin" && (
+              <button id="edit-button" onClick={handleEdit}>
+                Edit
+              </button>
+            )}
+            {role === "admin" && (
+              <button id="delete-button" onClick={deleteEvent}>
+                Delete
+              </button>
+            )}
           </div>
+
           {role === "admin" && <hr />}
-          
         </div>
       </div>
-     
-        <h3>Comments</h3>
-        {comment.map((eachComment) => (
-          <CommentCard
-            key={eachComment._id}
-            eachComment={eachComment}
-            getData={getData}
-          />
-        ))}
 
+      <h3 className="comments-title">Comments</h3>
+      {comment.map((eachComment) => (
+        <CommentCard
+          key={eachComment._id}
+          eachComment={eachComment}
+          getData={getData}
+        />
+      ))}
 
-        {isLoggedIn === true ? 
-        <AddComment getComments={getComments} /> : 
+      {isLoggedIn === true ? (
+        <AddComment getComments={getComments} />
+      ) : (
         <div className="login-to-comment">
           <p className="comment-login-intro">Want to join the conversation?</p>
-         <p className="comment-login-message"> <Link to="/login">Log in <i className="bi bi-box-arrow-up-right" style={{ fontSize: "14px" }} ></i></Link> or <Link to="/signup">Create an account <i className="bi bi-box-arrow-up-right" style={{ fontSize: "14px" }}></i></Link>  to leave a comment! </p>
-        
-        
-        
-        </div>}
+          <p className="comment-login-message">
+            <Link to="/login">
+              Log in{" "}
+              <i
+                className="bi bi-box-arrow-up-right"
+                style={{ fontSize: "14px" }}
+              ></i>
+            </Link>{" "}
+            or{" "}
+            <Link to="/signup">
+              Create an account{" "}
+              <i
+                className="bi bi-box-arrow-up-right"
+                style={{ fontSize: "14px" }}
+              ></i>
+            </Link>{" "}
+            to leave a comment!{" "}
+          </p>
+        </div>
+      )}
     </div>
   );
 }

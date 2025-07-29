@@ -4,7 +4,7 @@ function NotLoggedInMessage() {
   return (
     <div className = "not-logged-in-card">
      <div className="plus-button">
-        <button>+</button>
+        <button><Link to="/login">+</Link></button>
      </div>
 
          <div className = "not-logged-in-content">

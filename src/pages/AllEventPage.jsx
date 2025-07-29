@@ -57,7 +57,7 @@ function AllEventPage() {
 
   return (
     <div className="all-event-page">
-      <div className="prueba">
+      <div className="event-list-section">
         <SearchBar
           searchInputValue={searchInputValue}
           setSearchInputValue={setSearchInputValue}

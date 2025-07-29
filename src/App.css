@@ -16,6 +16,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 
 .all-event-card {
@@ -50,9 +51,9 @@
   align-items: flex-start;
 }
 
-.prueba {
-  width: 80%;
-  max-width: 700px;
+.event-list-section {
+ width: 80%;
+ max-width: 700px;
 }
 
 .homepage-main h2 {
@@ -144,7 +145,12 @@
   font-size: 20px;
   font-weight: 600;
   font-family: "DM Serif Display", serif;
+word-break: break-word;
+
 }
+
+
+
 
 .all-event-card p,
 .upcoming-card p,
@@ -240,7 +246,7 @@
 /***********EVENT PAGE DETAILS************/
 
 .event-details-page {
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -263,11 +269,23 @@
   text-align: left;
 }
 
-.event-info h2 {
-  margin-bottom: 10px;
+.event-info h1 {
   font-size: 30px;
   font-weight: 600;
   font-family: "DM Serif Display", serif;
+  margin-bottom: 0;
+}
+.event-info h3 {
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+.comments-title {
+  margin-bottom:24px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "DM Serif Display", serif;
+  font-size: 28px;
 }
 
 .event-info p {
@@ -314,18 +332,44 @@
   filter: brightness(90%);
 }
 
-.event-details-page h3 {
-  font-family: "DM Serif Display", serif;
-  color: #555555;
-  font-size: 24px;
-}
-
-.name-surface {
-  display: flex;
+.event-header {
+display: flex;
  justify-content: space-between;
  align-items: center;
- flex-direction: row;
+ align-content: center;
 }
+
+.event-details-info {
+  margin-top: 32px;
+  
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+/* Sur écrans moyens et plus (768px+) : 2 colonnes */
+@media (min-width: 768px) {
+  .event-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.label-value {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 4px;
+  background: #F5F5F5;
+}
+
+.label-value .value {
+  font-weight: 600;
+}
+
 .surface {
   color: white;
   padding: 4px 12px;
@@ -356,7 +400,7 @@
   border: 1px solid #ddd;
   padding: 12px 20px;
   border-radius: 8px;
-  margin-bottom: 15px;
+  margin: 16px 0;
   font-family: "Jakarta Sans", sans-serif;
 }
 
@@ -534,7 +578,7 @@
 /***********NOT LOGGED IN MESSAGE************/
 
 .not-logged-in-card {
-   display: flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   
@@ -545,7 +589,7 @@
   margin-left: auto;
   margin-right: auto;
 
-  padding: 12px;
+  padding: 20px 30px;
   margin: 10px 30px;
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
   cursor: pointer;
@@ -554,6 +598,7 @@
   width: 80%;
   background-color: #f0f0f0;
   max-width: 700px;
+
 }
 
 .not-logged-in-card button {
@@ -569,8 +614,13 @@
 margin: 0  0 0 24px ;
 }
 
+.not-logged-in-card button a {
+  color : white;
+  text-decoration: none
+}
 .not-logged-in-card a {
-  color :#00c4a6
+  color : #00c4a6
+  
 }
 
 
