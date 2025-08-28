@@ -587,12 +587,12 @@ display: flex;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
-  height: 400px; /* You must set a specified height */
+  height: 400px; 
   display: flex;
   flex-direction: column;
   align-items: center;
 color: #fbcd91;
-padding-top: 24px;
+justify-content: center;
 }
 
 .features, .hero-button {
@@ -616,12 +616,12 @@ margin: 4px 0;
 }
 
 .hero-button {
-  margin: 24px 0 ;
+  margin: 32px 0 ;
   gap: 8px;
 }
 
 .hero-button button {
-  height: 44px;
+   height: 44px;
   min-width: 64px;
   padding: 0 16px;
   border-radius: 5px;
@@ -630,10 +630,41 @@ margin: 4px 0;
 
 .hero-button button:first-child {
   background-color: #00c4a6;
-  color: #f5f5f5;
+  color: white;
 }
+
 .hero-button button:nth-child(2) {
-    color: #00c4a6;
+  background-color: #fbcd91;
+  color: #444;
+}
+
+.features {
+  color: white;
+  display: flex;
+  justify-content: center;
+  gap: 0 50px;
+  max-width: 700px;
+  align-items: center;
+
+}
+
+.feature-card {
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+text-align: center;
+
+}
+
+.features h3 {
+  font-size:16px;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.features p {
+  font-size:16px;
 }
 
 
