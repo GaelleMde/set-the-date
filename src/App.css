@@ -16,8 +16,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
-}
+  }
+
 
 .all-event-card {
   padding: 10px;
@@ -56,6 +56,12 @@
  max-width: 700px;
 }
 
+/* .homepage-main {
+  
+  margin: 0 auto;
+  padding: 20px;
+} */
+
 .homepage-main h2 {
   margin-top: 0;
   font-family: "DM Serif Display", serif;
@@ -69,8 +75,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  
+  justify-content: space-between; 
 }
 
 .title-homepage h6 {
@@ -574,6 +579,66 @@ display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+.hero-section {
+  background-image: 
+  linear-gradient(rgba(0,120,100,0.8), rgba(0,120,100,0.8)),
+  url("/public/Stadium.png") ;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  height: 400px; /* You must set a specified height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+color: #fbcd91;
+padding-top: 24px;
+}
+
+.features, .hero-button {
+  display: flex;
+  flex-direction: row;
+}
+
+.hero-section h1 {
+font-family: "DM Serif Display", serif;
+font-size: 48px;
+color: white;
+margin: 0;
+}
+
+.hero-section h2 {
+font-family: "DM Serif Display", serif;
+font-size: 20px;
+font-weight: 300;
+color: white;
+margin: 4px 0;
+}
+
+.hero-button {
+  margin: 24px 0 ;
+  gap: 8px;
+}
+
+.hero-button button {
+  height: 44px;
+  min-width: 64px;
+  padding: 0 16px;
+  border-radius: 5px;
+  border-style: none;
+}
+
+.hero-button button:first-child {
+  background-color: #00c4a6;
+  color: #f5f5f5;
+}
+.hero-button button:nth-child(2) {
+    color: #00c4a6;
+}
+
+
+
+
 
 /***********NOT LOGGED IN MESSAGE************/
 

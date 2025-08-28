@@ -57,6 +57,29 @@ function HomePage() {
 
   return (
     <div className="homepage-main">
+      <div className="hero-section">
+<h1>All your tournaments in on place</h1>
+<h2>Track every competition, save your favorites and join the community</h2>
+<div className="hero-button">
+<button>Explore tournaments</button>
+<button>Log in to save favorites</button>
+</div>
+<div className="features">
+<div className="feature-card">
+  <h3>Upcoming Events</h3>
+    <p>Stay informed with all upcoming tennis tournaments</p>
+</div>
+<div className="feature-card">
+  <h3>Favorites</h3>
+    <p>Save and track your favorite competitions</p>
+</div>
+<div className="feature-card">
+  <h3>Community</h3>
+    <p>Share thoughts and interact with other tennis fans</p>
+</div>
+</div>
+
+      </div>
       <div className="title-homepage">
         <h2>My favorites tournaments</h2>
         <Link to="/favorite" className="favorite-link">
