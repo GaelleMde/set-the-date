@@ -16,8 +16,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  }
-
+}
 
 .all-event-card {
   padding: 10px;
@@ -52,8 +51,8 @@
 }
 
 .event-list-section {
- width: 80%;
- max-width: 700px;
+  width: 80%;
+  max-width: 700px;
 }
 
 /* .homepage-main {
@@ -75,7 +74,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 .title-homepage h6 {
@@ -85,7 +84,6 @@
   color: #00c4a6;
   text-decoration: none;
   margin: 16px;
-
 }
 
 .favorite-link {
@@ -150,12 +148,8 @@
   font-size: 20px;
   font-weight: 600;
   font-family: "DM Serif Display", serif;
-word-break: break-word;
-
+  word-break: break-word;
 }
-
-
-
 
 .all-event-card p,
 .upcoming-card p,
@@ -211,8 +205,8 @@ word-break: break-word;
 
 .now-label {
   position: absolute;
-  top: 10px;      
-  left: 10px;  
+  top: 10px;
+  left: 10px;
   background-color: red;
   color: white;
   padding: 4px 8px;
@@ -220,14 +214,12 @@ word-break: break-word;
   font-size: 12px;
   font-weight: bold;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  pointer-events: none; 
+  pointer-events: none;
   display: inline-flex;
-  align-items: center; 
+  align-items: center;
   gap: 4px;
   overflow: hidden;
-  
 }
-
 
 .loader {
   height: 10px;
@@ -246,7 +238,6 @@ word-break: break-word;
     box-shadow: 0 0 0 14px #69ffa800;
   }
 }
-
 
 /***********EVENT PAGE DETAILS************/
 
@@ -286,7 +277,7 @@ word-break: break-word;
   font-weight: 400;
 }
 .comments-title {
-  margin-bottom:24px;
+  margin-bottom: 24px;
   font-size: 16px;
   font-weight: 400;
   font-family: "DM Serif Display", serif;
@@ -338,15 +329,14 @@ word-break: break-word;
 }
 
 .event-header {
-display: flex;
- justify-content: space-between;
- align-items: center;
- align-content: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
 }
 
 .event-details-info {
   margin-top: 32px;
-  
 }
 
 .event-grid {
@@ -368,7 +358,7 @@ display: flex;
   align-items: center;
   padding: 10px 14px;
   border-radius: 4px;
-  background: #F5F5F5;
+  background: #f5f5f5;
 }
 
 .label-value .value {
@@ -384,15 +374,15 @@ display: flex;
 }
 
 .surface.clay {
-  background-color: #e07b39; 
+  background-color: #e07b39;
 }
 
 .surface.grass {
-  background-color: #6ba06e; 
+  background-color: #6ba06e;
 }
 
 .surface.hard {
-  background-color: #3a80d9; 
+  background-color: #3a80d9;
 }
 
 /***********COMMENT CARD************/
@@ -570,7 +560,6 @@ display: flex;
 /***********HOMEPAGE ************/
 
 #auth-reminder img {
- 
   border-radius: 10px;
 }
 
@@ -581,47 +570,57 @@ display: flex;
 }
 
 .hero-section {
-  background-image: 
-  linear-gradient(rgba(0,120,100,0.8), rgba(0,120,100,0.8)),
-  url("/public/Stadium.png") ;
+  background-image:
+    linear-gradient(rgba(0, 120, 100, 0.8),rgba(0, 120, 100, 0.8)),
+    url("/public/Stadium.png");
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
-  height: 400px; 
   display: flex;
   flex-direction: column;
   align-items: center;
-color: #fbcd91;
-justify-content: center;
+  color: #fbcd91;
+  justify-content: center;
+  text-align: center;
+  padding: 50px 20px;
 }
 
-.features, .hero-button {
+.features,
+.hero-button {
   display: flex;
   flex-direction: row;
 }
 
 .hero-section h1 {
-font-family: "DM Serif Display", serif;
-font-size: 48px;
-color: white;
-margin: 0;
+  font-family: "DM Serif Display", serif;
+  font-size: 48px;
+  color: white;
+  margin: 0;
 }
 
 .hero-section h2 {
-font-family: "DM Serif Display", serif;
-font-size: 20px;
-font-weight: 300;
-color: white;
-margin: 4px 0;
+  font-family: "DM Serif Display", serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: white;
+  margin: 4px 0;
 }
 
 .hero-button {
-  margin: 32px 0 ;
+  margin: 32px 0;
   gap: 8px;
 }
 
+@media (max-width: 768px) {
+  .hero-button { 
+  display: flex; 
+  flex-direction: column;
+  width: 100%;
+  }
+}
+
 .hero-button button {
-   height: 44px;
+  height: 44px;
   min-width: 64px;
   padding: 0 16px;
   border-radius: 5px;
@@ -645,78 +644,100 @@ margin: 4px 0;
   gap: 0 50px;
   max-width: 700px;
   align-items: center;
+}
 
+@media (max-width: 768px) {
+  .features {  
+  flex-direction: column;
+  }
 }
 
 .feature-card {
-display: flex;
-justify-content: center;
-flex-direction: column;
-align-items: center;
-text-align: center;
-
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
+
+
 .features h3 {
-  font-size:16px;
+  font-size: 16px;
   margin-bottom: 0;
   margin-top: 8px;
 }
 
 .features p {
-  font-size:16px;
+  font-size: 16px;
 }
-
-
-
-
 
 /***********NOT LOGGED IN MESSAGE************/
 
 .not-logged-in-card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  
-  border-style: dashed;
-  border-color: #00c4a6;
-  border-radius: 8px;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  padding: 20px 30px;
-  margin: 10px 30px;
+  justify-content: center;
+  border: 1px solid #00c4a6;
+  border-radius: 8px; 
+  padding: 20px 30px;  
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
   cursor: pointer;
   transition: box-shadow 0.2s ease;
   font-family: "Jakarta Sans", sans-serif;
-  width: 80%;
   background-color: #f0f0f0;
-  max-width: 700px;
-
+  max-width: 100%;
 }
 
 .not-logged-in-card button {
   border: none;
-  border-radius: 50%;
-  background-color: #00c4a6;
-  width: 30px;
-  height: 30px;
+  background-color: #00c4a6; 
   color: white;
+  border-radius: 8px;
+  height: 44px;
+  min-width: 64px;
+  padding: 0 16px;
+  border-radius: 5px;
+  border-style: none;
+  font-size: 14px;
 }
 
-.not-logged-in-content p {
-margin: 0  0 0 24px ;
-}
-
-.not-logged-in-card button a {
-  color : white;
-  text-decoration: none
-}
-.not-logged-in-card a {
-  color : #00c4a6
+.not-logged-in-content h3 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
   
 }
+.not-logged-in-content h4 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 8px 23px 24px;
+}
+
+.not-logged-in-content  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lock-bg {
+  border-radius: 50%;
+  display: flex;                 
+  align-items: center;           
+  justify-content: center;      
+  width: 40px;                   
+  height: 40px;                            
+  background-color: rgba(0, 196, 166, 0.2); 
+  color: #00c4a6;                
+  font-size: 20px;               
+  margin-bottom: 16px;           
+}
+
+.not-logged-in-content button i {
+  vertical-align: middle; 
+}
+
 
 

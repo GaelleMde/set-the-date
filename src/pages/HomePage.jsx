@@ -60,7 +60,7 @@ function HomePage() {
   return (
     <div className="homepage-main">
       <div className="hero-section">
-        <h1>All your tournaments in on place</h1>
+        <h1>All your tournaments in one place</h1>
         <h2>
           Track every competition, save your favorites and join the community
         </h2>
@@ -69,55 +69,26 @@ function HomePage() {
           <button>Log in to save favorites</button>
         </div>
         <div className="features">
-          <div className="feature-card">
-            <i class="bi bi-trophy"></i>
+          <div className="feature-card">           
+            <i class="bi bi-trophy"></i>            
             <h3>Upcoming Events</h3>
             <p>Stay informed with all upcoming tennis tournaments</p>
           </div>
-          <div className="feature-card">
-            <i class="bi bi-heart"></i>
+          <div className="feature-card">            
+            <i class="bi bi-heart"></i>            
             <h3>Favorites</h3>
             <p>Save and track your favorite competitions</p>
           </div>
-          <div className="feature-card">
-            <i class="bi bi-chat-left-dots"></i>
+          <div className="feature-card">            
+            <i class="bi bi-chat-left-dots"></i>            
             <h3>Community</h3>
             <p>Share thoughts and interact with other tennis fans</p>
           </div>
         </div>
       </div>
-      <div className="title-homepage">
-        <h2>My favorites tournaments</h2>
-        <Link to="/favorite" className="favorite-link">
-          {isLoggedIn === true && <h6>View all my favorites</h6>}
-        </Link>
-      </div>
-      <div className="favorite-card-container">
-        {isLoggedIn === false && (
-          <NotLoggedInMessage />
-          //<div>
-          // <div className = "favorite-card">
-          //  test
-          // </div>
-          // <div id="auth-reminder">
-          // <p> <Link to="/login">Log in <i className="bi bi-box-arrow-up-right" style={{ fontSize: "14px" }} ></i></Link> or <Link to="/signup">Create an account <i className="bi bi-box-arrow-up-right" style={{ fontSize: "14px" }}></i></Link>  to save your favorite tournaments! </p>
-          // <img src="/gif-federer-nadal.gif" alt="" />
-          // </div>
-          //  </div>
-        )}
+      
 
-        {isLoggedIn === true &&
-          (allFavorites.length === 0 ? (
-            <p>You don’t have any favorite tournaments saved yet 🎾</p>
-          ) : (
-            allFavorites.map((eachFavorite) => (
-              <FavoriteCard
-                key={eachFavorite._id}
-                eachFavorite={eachFavorite}
-              />
-            ))
-          ))}
-      </div>
+
       <h2>Tournaments Schedule</h2>
 
       {!allUpcomingEvent || allUpcomingEvent.length === 0 ? (
@@ -135,6 +106,29 @@ function HomePage() {
           ))}
         </div>
       )}
+      <div className="title-homepage">
+        <h2>My favorites tournaments</h2>
+        <Link to="/favorite" className="favorite-link">
+          {isLoggedIn === true && <h6>View all my favorites</h6>}
+        </Link>
+      </div>
+
+        <div className="favorite-card-container">
+        {isLoggedIn === false && (
+          <NotLoggedInMessage />)}
+
+        {isLoggedIn === true &&
+          (allFavorites.length === 0 ? (
+            <p>You don’t have any favorite tournaments saved yet 🎾</p>
+          ) : (
+            allFavorites.map((eachFavorite) => (
+              <FavoriteCard
+                key={eachFavorite._id}
+                eachFavorite={eachFavorite}
+              />
+            ))
+          ))}
+      </div>
     </div>
   );
 }
