@@ -100,17 +100,6 @@
   margin-bottom: 0;
 }
 
-.preset-account {
-  color: black;
-  font-size: 13px;
-  margin-bottom: 16px;
-  background-color: #f5f5f5;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #ccc;
-  padding: 16px 20px;
-  border-radius: 8px;
-}
 
 @media (max-width: 900px) {
   .login-main {

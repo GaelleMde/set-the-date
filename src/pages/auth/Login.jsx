@@ -59,13 +59,7 @@ function Login() {
         <Form onSubmit={handleLogin} className="container-form">
           <h1>Welcome back</h1>
           <p>Please log in to continue</p>
-        <div className="preset-account">
-          <p>To make things easy, you can log in directly using one of these preset accounts, no need to create a new user:</p>
-           <li>
-            <strong>Admin:</strong>serena@serena.com / Password123!
-            </li>
-            <li><strong>User:</strong>billie@email.com / Password456!</li>
-</div>
+        
           {errorMessage && <p style={{ color: '#ff6b6b', fontWeight: 700 }}>{errorMessage}</p>}
 
           <Form.Group className="mb-3">

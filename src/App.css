@@ -55,11 +55,7 @@
   max-width: 700px;
 }
 
-/* .homepage-main {
-  
-  margin: 0 auto;
-  padding: 20px;
-} */
+
 
 .homepage-main h2 {
   margin-top: 0;
@@ -100,6 +96,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 36px;
 }
 
 .favorite-card {
@@ -176,7 +173,7 @@
   background-color: #f0f0f0;
   cursor: pointer;
   text-align: left;
-  flex: 0 0 280px; /* Largeur fixe + pas de rétrécissement */
+  flex: 0 0 280px; 
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   font-family: "Jakarta Sans", sans-serif;
 }
@@ -345,7 +342,7 @@
   gap: 8px;
 }
 
-/* Sur écrans moyens et plus (768px+) : 2 colonnes */
+
 @media (min-width: 768px) {
   .event-grid {
     grid-template-columns: 1fr 1fr;
@@ -572,7 +569,7 @@
 .hero-section {
   background-image:
     linear-gradient(rgba(0, 120, 100, 0.8),rgba(0, 120, 100, 0.8)),
-    url("/public/Stadium.png");
+    url("/Stadium.png");
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
@@ -627,14 +624,25 @@
   border-style: none;
 }
 
+.hero-button button:hover {
+filter: brightness(85%);
+}
+
 .hero-button button:first-child {
   background-color: #00c4a6;
   color: white;
+}
+.hero-button button:first-child:hover {
+background-color: #009882 ;
 }
 
 .hero-button button:nth-child(2) {
   background-color: #fbcd91;
   color: #444;
+}
+.hero-button button:nth-child(2):hover {
+  background-color: #f2a84a;
+  
 }
 
 .features {
@@ -659,8 +667,6 @@
   align-items: center;
   text-align: center;
 }
-
-
 
 .features h3 {
   font-size: 16px;
@@ -701,6 +707,10 @@
   border-radius: 5px;
   border-style: none;
   font-size: 14px;
+}
+
+.not-logged-in-card button:hover {
+  background-color: #009882; 
 }
 
 .not-logged-in-content h3 {

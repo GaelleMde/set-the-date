@@ -9,6 +9,24 @@ function UpcomingEventCard(props) {
     new Date(props.eachUpcomingEvent.startDate) <= today &&
     today <= new Date(props.eachUpcomingEvent.endDate);
 
+  const startDate = new Date(props.eachUpcomingEvent.startDate);
+  const endDate = new Date(props.eachUpcomingEvent.endDate);
+
+  function formatDate(startDate, endDate) {
+    if (startDate.getMonth() === endDate.getMonth()) {
+      return `${startDate.getDate()} - ${endDate.getDate()} ${endDate.toLocaleString(
+        "en-US",
+        { month: "long" }
+      )}, ${endDate.getFullYear()}`;
+    } else {
+      return `${startDate.getDate()} ${startDate.toLocaleString("en-US", {
+        month: "long",
+      })} - ${endDate.getDate()} ${endDate.toLocaleString("en-US", {
+        month: "long",
+      })}, ${endDate.getFullYear()}`;
+    }
+  }
+
   const handleClick = () => {
     navigate(`/event/${props.eachUpcomingEvent._id}`);
   };
@@ -25,10 +43,11 @@ function UpcomingEventCard(props) {
           {props.eachUpcomingEvent.name} - {props.eachUpcomingEvent.category}
         </h4>
         <p>
-          <i class="bi bi-calendar3"></i>{" "}
-          {props.eachUpcomingEvent.startDate.slice(0, 10)}
+          {/* <i class="bi bi-calendar3"></i>{" "} */}
+          {/* {props.eachUpcomingEvent.startDate.slice(0, 10)} */}
+          {formatDate(startDate, endDate)}
         </p>
-        <p>Surface: {props.eachUpcomingEvent.surface}</p>
+        <p>{props.eachUpcomingEvent.surface}</p>
       </div>
     </div>
   );

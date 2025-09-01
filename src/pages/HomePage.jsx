@@ -3,7 +3,7 @@ import { Authcontext } from "../context/auth.context";
 import service from "../services/service.config";
 import FavoriteCard from "../components/FavoriteCard";
 import UpcomingEventCard from "../components/UpcomingEventCard";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
 import NotLoggedInMessage from "../components/NotLoggedInMessage";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -14,6 +14,14 @@ function HomePage() {
   const [allFavorites, setAllFavorites] = useState([]);
   const [allUpcomingEvent, setAllUpcomingEvent] = useState(null);
   const { isLoggedIn } = useContext(Authcontext);
+  const navigate = useNavigate()
+
+  const handleExploreTournaments  = () => {
+    navigate("/event/all")
+  }
+  const handleLogin  = () => {
+    navigate("/login")
+  }
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -65,8 +73,8 @@ function HomePage() {
           Track every competition, save your favorites and join the community
         </h2>
         <div className="hero-button">
-          <button>Explore tournaments</button>
-          <button>Log in to save favorites</button>
+          <button onClick={handleExploreTournaments}>Explore tournaments</button>
+          <button onClick={handleLogin}>Log in to save favorites</button>
         </div>
         <div className="features">
           <div className="feature-card">           
